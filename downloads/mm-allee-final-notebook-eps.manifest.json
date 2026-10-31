@@ -1,10 +1,10 @@
 {
   "archive": "mm-allee-final-notebook-eps.zip",
-  "zip_sha256": "421696d55a9feed67cf7723f6eb90d30111eb659d34abb8e0cfd07df4ceee48d",
-  "zip_bytes": 483322,
-  "files": 18,
+  "zip_sha256": "b9824926cec50a99ce0cc5b637399b8326606b133fef506ec37dd602b701315e",
+  "zip_bytes": 528511,
+  "files": 20,
   "notebooks": 1,
-  "eps_figures": 17,
+  "eps_figures": 19,
   "public_runtime": {
     "asset_commit": "b0c6f278a5bff74dda2341cea3b0823c018c21de",
     "bytes": 1547948,
@@ -14,7 +14,7 @@
     "url": "https://raw.githubusercontent.com/devam2006/mm-allee-notebook-runtime/b0c6f278a5bff74dda2341cea3b0823c018c21de/runtime/wp01-wp05-1aa5283ac899d954.zip"
   },
   "file_sha256": {
-    "project.ipynb": "bae4265b3ae1341d28692a3e986ab74bb4d17522fa233e6e48c3a678a434ebeb",
+    "project.ipynb": "34e829a3145a821c3035db2c58268f827db180dd49f49d451c35deefed482eb6",
     "figures/wp01_logistic_vs_allee.eps": "01cafb74d2b12325efddc584c250a4dc4cafe9c03d8fe33e1fb6d0bfa200b7d4",
     "figures/wp01_model_a_branches.eps": "d426d8a8ea03d59b0336ddcb04fa4e8033281b3531725ca2fd37114f55bf7a3c",
     "figures/wp01_model_a_perturbations.eps": "78d2f45d3f1cec66f1a479697bb9b1837d00b54b458f8b58fcec83842206b63b",
@@ -28,6 +28,8 @@
     "figures/wp04_diagnose.eps": "2bd70d0c9c98a3ef1342edcdb8e49d83c6e82f062b1bb37d48893371b2bfb123",
     "figures/wp04_error_loss.eps": "6407e78c9f0efe4659dcc7fb0b37d277e75bfaad08e7389688cef5d85fbbb04f",
     "figures/wp04_forward.eps": "928f23406aec134da88ce87a6880600caec9b05cea9602c1454e7facc9f47f40",
+    "figures/wp05_demo_clean_parameter_trajectory.eps": "26452c5c9888cf3169db2f0db12ab9795532806b3c41cf04ff21c87ca09c6648",
+    "figures/wp05_demo_observations_1pct.eps": "fe095b1d1d61824e17b40b83f76f03f4f7644f028768643acaf1d19c971f4e28",
     "figures/wp05_heldout_failure.eps": "8bd9f36f23f37169416dbbc14c69585d78330ec37b7e46e4d7eb21d28d21a19d",
     "figures/wp05_heldout_failure_original_settings.eps": "b3c60c7d54e5078ab5aeb19143f28e6aba2cda1815a8b9874ddc564eb0e82002",
     "figures/wp05_recovery_noise.eps": "2143fafce9be3acae7aa5e73f595933f24fe4c4b25dee1256c6fd7e49e1dda45",

@@ -1,0 +1,99 @@
+{
+  "scope": "Two illustrative Model A regular fits; not a rerun of the frozen benchmark",
+  "source": "Rohan's supplied WP05 notebook, integrated without WP01-WP04 changes",
+  "known_conditions": {
+    "known_K": 100.0,
+    "known_initial_population": 45.0
+  },
+  "true_parameters": {
+    "r": 0.7,
+    "A": 20.0,
+    "H": 10.0
+  },
+  "initial_guesses": {
+    "r": 1.0,
+    "A": 30.0,
+    "H": 5.0
+  },
+  "noise_seed": 11,
+  "fit_seed": 1011,
+  "n_ref": 100.0,
+  "demo_settings": {
+    "lr_net": 0.001,
+    "lr_params": 0.005,
+    "lambda_phys": 0.5,
+    "n_collocation": 300,
+    "lbfgs_iters": 3000,
+    "time_budget_s": 120.0
+  },
+  "clean": {
+    "noise_sigma": 0.0,
+    "adam_epochs_requested": 500,
+    "validation_selection": false,
+    "estimates": {
+      "r": 0.699903498092353,
+      "A": 19.998010025444017,
+      "H": 10.000156256499672
+    },
+    "optimizer": {
+      "lbfgs_outcome": "iteration_limit",
+      "lbfgs_status": 1,
+      "lbfgs_message": "STOP: TOTAL NO. OF ITERATIONS REACHED LIMIT",
+      "lbfgs_iterations": 3000,
+      "error": null
+    },
+    "status": "converged",
+    "success": true,
+    "wall_seconds": 5.660975900013
+  },
+  "noisy": {
+    "noise_sigma": 0.01,
+    "adam_epochs_requested": 1200,
+    "validation_selection": true,
+    "estimates": {
+      "r": 0.580607870077415,
+      "A": 18.065182354976802,
+      "H": 9.194959400039515
+    },
+    "optimizer": {
+      "lbfgs_outcome": "iteration_limit",
+      "lbfgs_status": 1,
+      "lbfgs_message": "STOP: TOTAL NO. OF ITERATIONS REACHED LIMIT",
+      "lbfgs_iterations": 3000,
+      "error": null
+    },
+    "status": "converged",
+    "success": true,
+    "test_rmse": 1.0920533542213524,
+    "wall_seconds": 4.324999799981015
+  },
+  "ode_noisy": {
+    "estimates": {
+      "r": 0.583410451135194,
+      "A": 18.133508883389027,
+      "H": 9.177751223313653
+    },
+    "status": "converged",
+    "test_rmse": 1.0913985609883259,
+    "wall_seconds": 0.1824211000057403
+  },
+  "trajectory_rows": 3500,
+  "adam_trace_rows": 500,
+  "lbfgs_trace_rows": 3000,
+  "input_notebook_sha256": "9e6b29a749a614885017add2087ce56d3c04f58bc06389db3b8fa38e6ab4457d",
+  "non_wp05_cell_baseline": "ef3c9a57569ce7efb662d323220ded455d63dd2e",
+  "non_wp05_cells_identical": true,
+  "kernel_code_cells": 29,
+  "kernel_errors": 0,
+  "kernel_seconds": 36.37,
+  "png_outputs": 17,
+  "source_code_and_frozen_benchmark_unchanged": true,
+  "artifact_sha256": {
+    "artifacts/figures/wp05_demo_clean_parameter_trajectory.eps": "26452c5c9888cf3169db2f0db12ab9795532806b3c41cf04ff21c87ca09c6648",
+    "artifacts/figures/wp05_demo_clean_parameter_trajectory.png": "ca1200190a362d9648d1a19f7590f8df7eaac51cbdcf66b55cba68ecbb32de20",
+    "artifacts/figures/wp05_demo_observations_1pct.eps": "fe095b1d1d61824e17b40b83f76f03f4f7644f028768643acaf1d19c971f4e28",
+    "artifacts/figures/wp05_demo_observations_1pct.png": "2b729773ab5055015834402929f16574469ec3e22be1e4a41c605cd94d4b7426",
+    "artifacts/tables/wp05_demo_clean_parameter_trajectory.csv": "818922ade1701392d3cc5cbbc0d00df468b5ecf9857dc2c4ba418d041a3770fd"
+  },
+  "curated_eps_newlines": "Canonical LF, matching committed Git blobs"
+}

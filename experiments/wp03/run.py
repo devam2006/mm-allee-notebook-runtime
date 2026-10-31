@@ -169,74 +169,85 @@ def plot_results(study, config, output):
     )
     finish(fig, "wp03_basins", legend_space=True)
 
-    fig, axes = plt.subplots(1, 2, figsize=(10.5, 4))
+    if study["core_only"]:
+        fig, axis = plt.subplots(figsize=(7.5, 4))
+        axes = [axis]
+    else:
+        fig, axes = plt.subplots(1, 2, figsize=(10.5, 4))
     for fraction, solution in study["trajectories"]:
         axes[0].plot(solution.tau, solution.x, label=f"H/Hc={1 + fraction:g}")
     axes[0].axhline(star, color="black", linestyle="--", linewidth=1, label="x_star (fold state)")
     axes[0].set(
-        title="Post-collapse bottleneck (A)",
+        title="Slow decline just above the critical catch (A)"
+        if study["core_only"]
+        else "Post-collapse bottleneck (A)",
         xlabel="Dimensionless time tau = r t",
         ylabel="Population x = N / K",
     )
     axes[0].legend(fontsize=8, framealpha=1)
-    rows = study["tables"]["bottleneck"]
-    delta = np.array([r["delta_q"] for r in rows])
-    axes[1].loglog(
-        delta, [r["tau_ext"] for r in rows], "o-", label="Quadrature, full extinction time"
-    )
-    axes[1].loglog(
-        delta,
-        [r["asymptotic_scaled_time"] / np.sqrt(r["delta_q"]) for r in rows],
-        "k--",
-        label="Leading inverse-square-root term",
-    )
-    axes[1].set(
-        title="Approach to the collapse cliff",
-        xlabel="delta = q - qc > 0",
-        ylabel="Dimensionless extinction time tau_ext",
-    )
-    axes[1].legend(fontsize=8, framealpha=1)
+    if not study["core_only"]:
+        rows = study["tables"]["bottleneck"]
+        delta = np.array([r["delta_q"] for r in rows])
+        axes[1].loglog(
+            delta, [r["tau_ext"] for r in rows], "o-", label="Quadrature, full extinction time"
+        )
+        axes[1].loglog(
+            delta,
+            [r["asymptotic_scaled_time"] / np.sqrt(r["delta_q"]) for r in rows],
+            "k--",
+            label="Leading inverse-square-root term",
+        )
+        axes[1].set(
+            title="Approach to the collapse cliff",
+            xlabel="delta = q - qc > 0",
+            ylabel="Dimensionless extinction time tau_ext",
+        )
+        axes[1].legend(fontsize=8, framealpha=1)
     for axis in axes:
         axis.grid(color="0.9")
     finish(fig, "wp03_bottleneck")
 
-    fig, axes = plt.subplots(1, 2, figsize=(10.5, 4))
-    for i, name in enumerate(("H_c", "h_c")):
-        rows = [r for r in study["tables"]["sensitivity"] if r["threshold"] == name]
-        axes[0].bar(
-            np.arange(3) + (i - 0.5) * 0.32, [r["elasticity"] for r in rows], width=0.32, label=name
+    if not study["core_only"]:
+        fig, axes = plt.subplots(1, 2, figsize=(10.5, 4))
+        for i, name in enumerate(("H_c", "h_c")):
+            rows = [r for r in study["tables"]["sensitivity"] if r["threshold"] == name]
+            axes[0].bar(
+                np.arange(3) + (i - 0.5) * 0.32,
+                [r["elasticity"] for r in rows],
+                width=0.32,
+                label=name,
+            )
+        axes[0].set(
+            xticks=np.arange(3),
+            xticklabels=["r", "K", "A"],
+            title="Optional: dimensional elasticities",
+            ylabel="(p / threshold) d(threshold) / dp",
         )
-    axes[0].set(
-        xticks=np.arange(3),
-        xticklabels=["r", "K", "A"],
-        title="Optional: dimensional elasticities",
-        ylabel="(p / threshold) d(threshold) / dp",
-    )
-    axes[0].axhline(0, color="black", linewidth=0.7)
-    axes[0].legend(framealpha=1)
-    rows = study["tables"]["yield"]
-    axes[1].plot(
-        [r["effort_fraction"] for r in rows],
-        [r["realised_yield"] for r in rows],
-        label="B upper equilibrium branch",
-    )
-    msy = study["msy"]
-    axes[1].plot(msy["h_MSY"] / msy["h_c"], msy["Y_MSY_B"], "ko", label="Interior MSY")
-    axes[1].plot(
-        1,
-        rows[-1]["realised_yield"],
-        marker="s",
-        color="#D55E00",
-        linestyle="none",
-        label="Effort cliff (semistable)",
-    )
-    axes[1].set(
-        title="Optional: yield is not effort",
-        xlabel="Effort h / hc",
-        ylabel="Realised yield [population_unit / model_time_unit]",
-    )
-    axes[1].legend(fontsize=8, framealpha=1)
-    finish(fig, "wp03_sensitivity_yield")
+        axes[0].axhline(0, color="black", linewidth=0.7)
+        axes[0].legend(framealpha=1)
+        rows = study["tables"]["yield"]
+        axes[1].plot(
+            [r["effort_fraction"] for r in rows],
+            [r["realised_yield"] for r in rows],
+            label="B upper equilibrium branch",
+        )
+        msy = study["msy"]
+        axes[1].plot(msy["h_MSY"] / msy["h_c"], msy["Y_MSY_B"], "ko", label="Interior MSY")
+        axes[1].plot(
+            1,
+            rows[-1]["realised_yield"],
+            marker="s",
+            color="#D55E00",
+            linestyle="none",
+            label="Effort cliff (semistable)",
+        )
+        axes[1].set(
+            title="Optional: yield is not effort",
+            xlabel="Effort h / hc",
+            ylabel="Realised yield [population_unit / model_time_unit]",
+        )
+        axes[1].legend(fontsize=8, framealpha=1)
+        finish(fig, "wp03_sensitivity_yield")
     return paths
 
 
@@ -249,9 +260,11 @@ def git_value(*args):
         return None
 
 
-def run(config, output):
+def run(config, output, *, core_only=False):
     started = time.perf_counter()
-    study = build_study(config)  # Validate and compute before creating output files.
+    study = build_study(
+        config, core_only=core_only
+    )  # Validate and compute before creating output files.
     output = Path(output)
     output.mkdir(parents=True, exist_ok=True)
     paths = []
@@ -263,12 +276,13 @@ def run(config, output):
             writer.writerows(rows)
         paths.append(path)
     paths.extend(plot_results(study, config, output))
-    summary_path = output / "wp03_summary.json"
-    write_json(
-        summary_path,
-        {"thresholds_and_msy": study["msy"], "example_policy_margins": study["policies"]},
-    )
-    paths.append(summary_path)
+    if not core_only:
+        summary_path = output / "wp03_summary.json"
+        write_json(
+            summary_path,
+            {"thresholds_and_msy": study["msy"], "example_policy_margins": study["policies"]},
+        )
+        paths.append(summary_path)
     source = [
         Path(__file__),
         *[
@@ -287,7 +301,8 @@ def run(config, output):
     git_status = git_value("status", "--porcelain")
     manifest = {
         "schema_version": 1,
-        "run_id": "wp03-collapse-analysis-v1",
+        "run_id": "wp03-collapse-core-v1" if core_only else "wp03-collapse-analysis-v1",
+        "core_only": core_only,
         "status": "passed",
         "is_synthetic": True,
         "generated_at_utc": datetime.now(timezone.utc).isoformat(),
@@ -314,8 +329,14 @@ def run(config, output):
         "validation": {
             "threshold_maxima": "passed",
             "event_integrations": "passed",
-            "sensitivity_finite_differences": "passed",
-            "yield_numerical_maximum": "passed",
+            **(
+                {}
+                if core_only
+                else {
+                    "sensitivity_finite_differences": "passed",
+                    "yield_numerical_maximum": "passed",
+                }
+            ),
         },
         "seeds": None,
         "noise": None,
@@ -359,9 +380,14 @@ def main():
     parser.add_argument(
         "--curate", action="store_true", help="Refresh the versioned WP03 figures/tables/manifest"
     )
+    parser.add_argument(
+        "--core-only",
+        action="store_true",
+        help="Skip sensitivity, yield, policy margins and bottleneck asymptotics",
+    )
     args = parser.parse_args()
     try:
-        result = run(json.loads(args.config.read_text()), args.output)
+        result = run(json.loads(args.config.read_text()), args.output, core_only=args.core_only)
         if args.curate:
             curate(args.output)
     except (ValueError, KeyError, TypeError, OSError, RuntimeError, ArithmeticError) as exc:

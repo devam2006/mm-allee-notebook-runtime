@@ -1,0 +1,124 @@
+{
+  "schema_version": 1,
+  "run_id": "wp03-collapse-core-v1",
+  "core_only": true,
+  "status": "passed",
+  "is_synthetic": true,
+  "generated_at_utc": "2026-10-31T19:32:39.124307+00:00",
+  "git_sha": "2ab0cac2729c20ec77d80b307f7f789755fe0835",
+  "git_dirty": true,
+  "configuration": {
+    "schema_version": 1,
+    "parameters": {
+      "r": 0.7,
+      "K": 100.0,
+      "A": 20.0
+    },
+    "units": {
+      "time": "model_time_unit",
+      "population": "population_unit"
+    },
+    "a_sweep": [
+      0.05,
+      0.1,
+      0.2,
+      0.5,
+      0.8,
+      0.95
+    ],
+    "curve_points": 61,
+    "initial_curve_harvest_fractions": [
+      0.5,
+      1.0,
+      1.05,
+      1.2
+    ],
+    "harvest_curve_initial_x": [
+      0.1,
+      0.5,
+      0.9
+    ],
+    "max_initial_x": 1.2,
+    "max_harvest_fraction": 1.25,
+    "basin_control_points": 61,
+    "basin_initial_points": 81,
+    "bottleneck_fractions_above_fold": [
+      0.1,
+      0.03,
+      0.01,
+      0.003,
+      0.001,
+      0.0003,
+      0.0001
+    ],
+    "bottleneck_initial_x": 1.1,
+    "trajectory_fractions_above_fold": [
+      0.01,
+      0.05,
+      0.2
+    ],
+    "root_tolerance": 2e-12,
+    "quadrature": {
+      "epsabs": 1e-10,
+      "epsrel": 1e-10
+    },
+    "event_validation": {
+      "relative_tolerance": 5e-07,
+      "absolute_tau_tolerance": 2e-07
+    },
+    "runtime_budget_seconds": 60
+  },
+  "configuration_sha256": "5300116ec5995361ccbf7b061e1603c457091fd243501f7fb2c52591b4aa22b8",
+  "source_files_sha256": {
+    "experiments/wp03/run.py": "745e25c2efc41ce228dca3b59065f6dc3dda6bdc85a9dc5ff07de241f9dabea2",
+    "src/mm_allee/models.py": "a2eca4c4aa9ab70107beb7725237d4b72c5cec05ab215cb27cabbeadf535887c",
+    "src/mm_allee/datasets.py": "628690be8d8dbac75468af31d9af99606f4980ee675b24dc16fca5e1d12bbae1",
+    "src/mm_allee/solver.py": "ecbcd509c1221c8ec5538e974f9ec0741e660ccb26dc7d608a5c1675ea5c7695",
+    "src/mm_allee/thresholds.py": "5dd125bcf915b1e8c4583abf0dd93c8f301d7465daca7afee44f1d4cd665f466",
+    "src/mm_allee/collapse.py": "00eeba90b9b8b50a3e2f46c5cd22a42518646b0b9cdfcbd65fa49eff39834cbb",
+    "src/mm_allee/collapse_study.py": "78c971056104c7bed18a7095863496bb3e90274b83f282f4abc2eb55b6f71b84",
+    "src/mm_allee/plotting.py": "549d490288d2e3276bda981552271c3f8c6a21c04b5e31a4e0d7aff88fcece92"
+  },
+  "versions": {
+    "python": "3.14.3",
+    "numpy": "2.5.4",
+    "scipy": "1.18.1",
+    "matplotlib": "3.11.2"
+  },
+  "hardware": {
+    "platform": "Windows",
+    "machine": "AMD64",
+    "processor": "Intel64 Family 6 Model 170 Stepping 4, GenuineIntel"
+  },
+  "wall_seconds": 3.0117960999778006,
+  "table_rows": {
+    "thresholds": 6,
+    "extinction": 427,
+    "basins": 34,
+    "event_validation": 6
+  },
+  "validation": {
+    "threshold_maxima": "passed",
+    "event_integrations": "passed"
+  },
+  "seeds": null,
+  "noise": null,
+  "splits": null,
+  "scope": "Deterministic WP03 analysis; no noise/splits/PINN, no certified final group submission",
+  "paths_relative_to": "repository_root",
+  "files_sha256": {
+    "artifacts/tables/wp03_thresholds.csv": "50db09da91221edc79893e1082d15b5f0ee09b7e412de68afd79ffd6c2644ce9",
+    "artifacts/tables/wp03_extinction.csv": "92dcbbafe744ecaf0c73998e8c939909fc2014df605d949ce1e9485a3fa3f6cd",
+    "artifacts/tables/wp03_basins.csv": "a9abcba02639a95e5f893d737447093ffa9d6c4b451cb31dc07fc358530c2a43",
+    "artifacts/tables/wp03_event_validation.csv": "681ccf58ab7e2af34e3ee71f7d46f1c3463cb5fcae25dccf68398631d5d75b6d",
+    "artifacts/figures/wp03_basins.png": "69676f98ceb472ef70a86214ba59e4e4630af1f62819c80190d949826e516306",
+    "artifacts/figures/wp03_basins.eps": "8b388baa0d4e75c5e71f8fae36aec8824b1e9104a18eb1517cc25a47cd207821",
+    "artifacts/figures/wp03_basins.pdf": "3072f45f0bae2c2658bdeda0935db7f1c0e6edfd9640a4dada3d20681e94fcf4",
+    "artifacts/figures/wp03_extinction.png": "e9fd55730d3d6fea9d193d0d20907363ef2b198fb078bd5f6f3954afdd3e24fe",
+    "artifacts/figures/wp03_extinction.eps": "56b4fb3514cfcbb15892343ca3d09601998c51627601cec75b019413afbd4f78",
+    "artifacts/figures/wp03_extinction.pdf": "bf1eaab043d7c8555f8b3c88001a098a3476485dee4901083dbcae16a7fa3821",
+    "artifacts/figures/wp03_bottleneck_core.png": "203881ecb0a0fda33e963a3ee81021e88bcf1d13a96768013b12b702647ac44c",
+    "artifacts/figures/wp03_bottleneck_core.eps": "14800c4fa565c764099504b22cc669097e2112b75fc1fe09e8afb18a14337a86",
+    "artifacts/figures/wp03_bottleneck_core.pdf": "59d4bd52afed62c9ec3b2e9435ba0c51592a44d722370dd4d3ddf493f9eb8a19"
+  }
+}

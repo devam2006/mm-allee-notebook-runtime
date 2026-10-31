@@ -1,0 +1,29 @@
+{
+  "source_pr": 13,
+  "source_commit": "d555f01541eed69ac54c2f11ceed3e9f4ccaed5b",
+  "integration_baseline": "9d96b85e14296b464c9545749048eb7077dec64f",
+  "scope": "WP01 notebook cells only; other cells, metadata and all 19 EPS unchanged",
+  "colab_adjustment": "Main-result body outside HTML; identical mathematical text",
+  "notebook_sha256": "f309913a7f32c191dc7f8d86d3b174f6cd063d41cc2896e9a99e05b37673b799",
+  "notebook_bytes": 88495,
+  "cells": 62,
+  "code_cells": 27,
+  "kernel_errors": 0,
+  "kernel_seconds": 45.83,
+  "png_outputs": 17,
+  "wp01_and_export_tests": 195,
+  "tests_seconds": 17.89,
+  "runtime": {
+    "asset_commit": "b0c6f278a5bff74dda2341cea3b0823c018c21de",
+    "bytes": 1547948,
+    "path": "runtime/wp01-wp05-1aa5283ac899d954.zip",
+    "sha256": "1aa5283ac899d954ec3dc1115fd533e6d3824cec01518c45df210752d5472e17",
+    "source_commit": "87bea768e798e826c39c9776541a3e3ef183175d",
+    "url": "https://raw.githubusercontent.com/devam2006/mm-allee-notebook-runtime/b0c6f278a5bff74dda2341cea3b0823c018c21de/runtime/wp01-wp05-1aa5283ac899d954.zip"
+  },
+  "zip_sha256": "ee61d1224e4eac36fe29c4c6068e7ec1400068cb95356bc00ed7f2956edce0c3",
+  "zip_bytes": 526471,
+  "zip_files": 20,
+  "eps_figures": 19,
+  "human_approval": false
+}

@@ -72,7 +72,10 @@ def validate_study_config(config):
     return p
 
 
-def build_study(config):
+def build_study(config, *, core_only=False):
+    """Compute core evidence, optionally retaining the historical extensions."""
+    if not isinstance(core_only, bool):
+        raise ValueError("core_only must be a boolean")
     p = validate_study_config(config)
     start = time.perf_counter()
 
@@ -83,18 +86,10 @@ def build_study(config):
     a = p.A / p.K
     star, qc = critical_a(a)
     ec = critical_b(a)
-    tables = {
-        key: []
-        for key in (
-            "thresholds",
-            "extinction",
-            "basins",
-            "bottleneck",
-            "sensitivity",
-            "yield",
-            "event_validation",
-        )
-    }
+    table_names = ["thresholds", "extinction", "basins", "event_validation"]
+    if not core_only:
+        table_names += ["bottleneck", "sensitivity", "yield"]
+    tables = {key: [] for key in table_names}
     for ratio in config["a_sweep"]:
         budget()
         polynomial = Polynomial([0, -1, (1 + ratio) / ratio, -1 / ratio])
@@ -207,58 +202,65 @@ def build_study(config):
                 )
                 tables["basins"].append(asdict(label) | {"control_fraction": fraction})
 
-    target = pi / sqrt(sqrt(1 - a + a * a) / a)
-    for fraction in config["bottleneck_fractions_above_fold"]:
-        budget()
-        q = qc * (1 + fraction)
-        result = extinction_time_a(
-            a=a, q=q, x0=config["bottleneck_initial_x"], **config["quadrature"]
-        )
-        tables["bottleneck"].append(
-            {
-                "fraction_above_fold": fraction,
-                "delta_q": q - qc,
-                "tau_ext": result.tau_ext,
-                "scaled_time": result.tau_ext * sqrt(q - qc),
-                "asymptotic_scaled_time": target,
-                "method": result.method,
-            }
-        )
+    if not core_only:
+        target = pi / sqrt(sqrt(1 - a + a * a) / a)
+        for fraction in config["bottleneck_fractions_above_fold"]:
+            budget()
+            q = qc * (1 + fraction)
+            result = extinction_time_a(
+                a=a, q=q, x0=config["bottleneck_initial_x"], **config["quadrature"]
+            )
+            tables["bottleneck"].append(
+                {
+                    "fraction_above_fold": fraction,
+                    "delta_q": q - qc,
+                    "tau_ext": result.tau_ext,
+                    "scaled_time": result.tau_ext * sqrt(q - qc),
+                    "asymptotic_scaled_time": target,
+                    "method": result.method,
+                }
+            )
 
-    for row in threshold_sensitivity(p):
-        key, name = row["parameter"], row["threshold"]
-        step = min(1e-5 * getattr(p, key), 0.1 * (p.K - p.A))
-        plus = dimensional_thresholds(parameters_with(p, **{key: getattr(p, key) + step}))[name]
-        minus = dimensional_thresholds(parameters_with(p, **{key: getattr(p, key) - step}))[name]
-        fd = (plus - minus) / (2 * step)
-        if not np.isclose(fd, row["partial"], rtol=2e-7, atol=1e-9):
-            raise RuntimeError("Threshold sensitivity finite-difference check failed")
-        tables["sensitivity"].append(
-            row
-            | {"finite_difference": fd, "step": step, "absolute_error": abs(fd - row["partial"])}
+        for row in threshold_sensitivity(p):
+            key, name = row["parameter"], row["threshold"]
+            step = min(1e-5 * getattr(p, key), 0.1 * (p.K - p.A))
+            plus = dimensional_thresholds(parameters_with(p, **{key: getattr(p, key) + step}))[name]
+            minus = dimensional_thresholds(parameters_with(p, **{key: getattr(p, key) - step}))[
+                name
+            ]
+            fd = (plus - minus) / (2 * step)
+            if not np.isclose(fd, row["partial"], rtol=2e-7, atol=1e-9):
+                raise RuntimeError("Threshold sensitivity finite-difference check failed")
+            tables["sensitivity"].append(
+                row
+                | {
+                    "finite_difference": fd,
+                    "step": step,
+                    "absolute_error": abs(fd - row["partial"]),
+                }
+            )
+        msy = maximum_yields(p)
+        numeric_msy = minimize_scalar(
+            lambda e: -sustainable_yield_b(a, e)[1],
+            bounds=(0, ec),
+            method="bounded",
+            options={"xatol": 1e-14},
         )
-    msy = maximum_yields(p)
-    numeric_msy = minimize_scalar(
-        lambda e: -sustainable_yield_b(a, e)[1],
-        bounds=(0, ec),
-        method="bounded",
-        options={"xatol": 1e-14},
-    )
-    if not numeric_msy.success or not np.isclose(
-        msy["Y_MSY_B"], -numeric_msy.fun * p.r * p.K, rtol=1e-9
-    ):
-        raise RuntimeError("B MSY numerical maximum check failed")
-    for fraction in np.linspace(0, 1, config["curve_points"]):
-        x, y = sustainable_yield_b(a, float(fraction * ec))
-        tables["yield"].append(
-            {
-                "effort_fraction": float(fraction),
-                "h": float(fraction * ec * p.r),
-                "N_upper": p.K * x,
-                "realised_yield": p.r * p.K * y,
-                "stability": "semistable" if fraction == 1 else "stable_positive",
-            }
-        )
+        if not numeric_msy.success or not np.isclose(
+            msy["Y_MSY_B"], -numeric_msy.fun * p.r * p.K, rtol=1e-9
+        ):
+            raise RuntimeError("B MSY numerical maximum check failed")
+        for fraction in np.linspace(0, 1, config["curve_points"]):
+            x, y = sustainable_yield_b(a, float(fraction * ec))
+            tables["yield"].append(
+                {
+                    "effort_fraction": float(fraction),
+                    "h": float(fraction * ec * p.r),
+                    "N_upper": p.K * x,
+                    "realised_yield": p.r * p.K * y,
+                    "stability": "semistable" if fraction == 1 else "stable_positive",
+                }
+            )
 
     # Representative finite paths are checked against two RK45 tolerances
     # and an independently expanded polynomial/DOP853, including the fold.
@@ -342,10 +344,12 @@ def build_study(config):
             n_points=301,
         )
         trajectories.append((fraction, solution))
-    policies = [
-        safety_margins("A", parameters_with(p, H=0.8 * msy["H_c"]), 0.9 * p.K),
-        safety_margins("B", parameters_with(p, h=msy["h_MSY"]), 0.9 * p.K),
-    ]
+    policies = []
+    if not core_only:
+        policies = [
+            safety_margins("A", parameters_with(p, H=0.8 * msy["H_c"]), 0.9 * p.K),
+            safety_margins("B", parameters_with(p, h=msy["h_MSY"]), 0.9 * p.K),
+        ]
     budget()
     return {
         "parameters": p,
@@ -354,7 +358,8 @@ def build_study(config):
         "initials": initials,
         "basin_grids": grids,
         "trajectories": trajectories,
-        "msy": msy,
+        "core_only": core_only,
+        "msy": None if core_only else msy,
         "policies": policies,
         "wall_seconds_analysis": time.perf_counter() - start,
     }

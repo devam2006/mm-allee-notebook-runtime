@@ -1,5 +1,9 @@
 # Strong-Allee harvesting: notebook, code and synthetic data
 
+[**Download the final notebook + EPS figures ZIP**](https://github.com/devam2006/mm-allee-notebook-runtime/raw/cbed0d2ef0b623e239510741463996613f7579af/downloads/mm-allee-final-notebook-eps.zip)
+
+The ZIP contains exactly one finalized notebook and 17 EPS figures, with no report, PDF or PNG exports. The notebook downloads its fixed public code/data runtime when run; internet is needed on first use.
+
 [**Open in Google Colab**](https://colab.research.google.com/github/devam2006/mm-allee-notebook-runtime/blob/main/project.ipynb)
 
 Connect a CPU runtime and choose **Runtime → Run all**. The small notebook downloads a fixed, checksum-verified snapshot of its code/data on the first run. No Drive mount, private repository permission or API key is required. Figures appear as the cells run.

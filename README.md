@@ -1,37 +1,33 @@
 # Strong-Allee harvesting: notebook, code and synthetic data
 
-[**Open the current notebook in Colab**](https://colab.research.google.com/github/devam2006/mm-allee-notebook-runtime/blob/main/project.ipynb) · [**Download notebook (.ipynb)**](https://github.com/devam2006/mm-allee-notebook-runtime/releases/download/notebook-eps-v4/project.ipynb) · [**Download notebook + 19 EPS figures**](https://github.com/devam2006/mm-allee-notebook-runtime/releases/download/notebook-eps-v4/mm-allee-final-notebook-eps.zip)
+[**Open in Colab**](https://colab.research.google.com/github/devam2006/mm-allee-notebook-runtime/blob/main/project.ipynb) · [**Download notebook**](https://github.com/devam2006/mm-allee-notebook-runtime/releases/download/notebook-eps-v5/project.ipynb) · [**Notebook + 18 EPS figures**](https://github.com/devam2006/mm-allee-notebook-runtime/releases/download/notebook-eps-v5/mm-allee-final-notebook-eps.zip)
 
-The notebook contains WP01–WP05. This version imports only Raghav's condensed WP01 presentation onto the latest Rohan WP05 version. Every non-WP01 cell and all 19 EPS figures are unchanged. The ZIP contains exactly one notebook and those EPS figures; report writing remains separate in Overleaf.
+WP03 now presents numbered subsections 3.1–3.6: critical harvesting rates, basins, extinction time, numerical validation, qualitative slow decline and reference data. Its core runner skips sensitivity, yield optimisation, policy margins and bottleneck asymptotic comparisons. The owners' finalized WP01 and WP05 notebook sections, and all WP02/WP04 cells, are unchanged.
 
-Connect a CPU runtime and choose **Runtime → Run all**. The small notebook downloads a fixed, checksum-verified snapshot of its code/data on first use. No Drive mount, private repository permission or API key is required. Figures appear as cells run. All population data are synthetic; recorded historical sweeps are read from tables.
+[**Editable WP03 Overleaf update**](https://github.com/devam2006/mm-allee-notebook-runtime/releases/download/notebook-eps-v5/wp03-overleaf-update.zip) · [**WP03 LaTeX section**](https://github.com/devam2006/mm-allee-notebook-runtime/releases/download/notebook-eps-v5/03_collapse.tex)
 
-## Current checks
+Copy the section and its three EPS files into the current Overleaf project, preserving teammates' work. This is an editable section update; no report PDF is supplied.
 
-- 88,495 bytes, 62 cells / 27 code cells; largest code cell 6,668 characters.
-- Fresh kernel: all 27 code cells passed with zero errors in 45.83 seconds, displaying 17 PNG outputs.
-- 195 focused WP01 and Colab-export tests passed. The unchanged source suite previously passed 531 tests; that full suite was not rerun locally for the WP01 presentation change.
-- Models, trainers, configs, datasets, frozen evidence and runtime pin are unchanged.
-- Notebook SHA-256: `f309913a7f32c191dc7f8d86d3b174f6cd063d41cc2896e9a99e05b37673b799`.
-- ZIP: 20 files, 526,471 bytes; SHA-256: `ee61d1224e4eac36fe29c4c6068e7ec1400068cb95356bc00ed7f2956edce0c3`.
+## Run and verification
 
-Previous versioned releases remain available and unchanged.
+Connect a CPU runtime and choose **Runtime → Run all**. First use downloads a fixed 1.57 MB runtime and verifies its SHA-256. No Drive mount, private repository access or API key is needed. Figures appear when cells run. All population examples are synthetic.
 
-## Files
+- Notebook: 88,192 bytes, 61 cells / 27 code cells; largest code cell 6,668 characters.
+- Fresh kernel using the new public runtime: **27 code cells, zero errors, 33.34 seconds**, 16 PNG outputs.
+- Complete source suite: **533 tests passed**. Core-mode regressions verify optional routines are not called and core evidence matches historical results.
+- Shared models, root/threshold helpers, robust extinction solver, PINN code/configs and reference fixtures are unchanged. The historical full WP03 command remains available.
+- Notebook SHA-256: `0d1c8d95cf803d7360b21f2c9a3d45e521825a2cd118a7d31e613be0202322eb`.
+- Minimal ZIP: 19 files, 510,803 bytes; SHA-256: `2a5a2199b67fbe2b30bc99698896d5f1d4ed75115c51c0e37a803a59075acd7a`.
+- WP03 report update: five files, 166,855 bytes; SHA-256: `e08a324ac37ed86a033e40d10b104a58bc3ee29e5a297f2f80fe5ae311d10c94`.
 
-- `project.ipynb`: current Colab/Jupyter entry point.
-- `downloads/`: current minimal archive and its separate checksum inventory.
-- `runtime/`: fixed executable snapshot and manifest.
-- `src/`, `experiments/`, `configs/`: readable scientific code and settings.
-- `data/fixtures/wp03_reference/`: six clean synthetic trajectories and provenance.
-- `datasets/`: reconstructed noisy observations with split/noise labels.
-- `artifacts/figures/`: figure assets, including the two additional WP05 demo plots.
-- `artifacts/tables/`, `artifacts/manifests/`: recorded experiment evidence.
+The current ZIP replaces WP03's historical two-panel bottleneck and optional sensitivity/yield figure with a trajectories-only plot. Other owners' EPS files are unchanged. Earlier versioned releases remain available.
 
-Python 3.11+ is required. The setup installs missing scientific dependencies (NumPy, SciPy, Matplotlib, IPython and JAX). A repository download includes the local runtime ZIP for offline Jupyter use.
+## Resources and interpretation
 
-## Interpretation and attribution
+`runtime/` contains immutable snapshots; `src/`, `experiments/` and `configs/` provide readable code/settings. `data/fixtures/wp03_reference/` contains the six clean trajectories; `datasets/` contains reconstructed noisy observations with split/noise labels. Figures, tables and provenance are in `artifacts/`; current downloads and separate checksum inventories are in `downloads/`.
 
-WP05's newer clean and 1% noisy live demonstrations use different settings from the unchanged frozen 108-fit benchmark. They illustrate behavior; they do not replace that benchmark. The inverse trainer's legacy `converged` label denotes completed training; read the separate L-BFGS outcome. The recorded final sweep has 54 iteration-limit exits and 10/18 clean PINN recoveries, including Model B near-fold 3/3. Good trajectory fits do not prove accurate parameters.
+Python 3.11+ is required. The setup installs missing scientific dependencies. The historical long sweeps are loaded from evidence tables rather than silently retrained.
 
-Human reviews and the report/presentation remain separate. See NOTICE.md and docs/REFERENCES.md for attribution. AI tools assisted implementation and review under the members' direction. Private development discussions are not included here.
+WP05's newer live demonstrations retain their owner-finalized settings. They are distinct from the frozen 108-fit benchmark: 10/18 clean PINN recoveries, including B near-fold 3/3. The legacy inverse `converged` label denotes completed training; inspect the optimizer outcome. Good trajectory fits do not establish parameter recovery.
+
+Human review, understanding and final report/presentation remain separate. See NOTICE.md and docs/REFERENCES.md for attribution. AI assisted implementation and checking under the members' direction.

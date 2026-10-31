@@ -1,6 +1,6 @@
 # Strong-Allee harvesting: notebook, code and synthetic data
 
-[**Download the final notebook + EPS figures ZIP**](https://github.com/devam2006/mm-allee-notebook-runtime/raw/cbed0d2ef0b623e239510741463996613f7579af/downloads/mm-allee-final-notebook-eps.zip)
+[**Download the final notebook + EPS figures ZIP**](https://github.com/devam2006/mm-allee-notebook-runtime/releases/download/notebook-eps-v1/mm-allee-final-notebook-eps.zip)
 
 The ZIP contains exactly one finalized notebook and 17 EPS figures, with no report, PDF or PNG exports. The notebook downloads its fixed public code/data runtime when run; internet is needed on first use.
 

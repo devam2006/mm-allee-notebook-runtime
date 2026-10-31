@@ -1,0 +1,14 @@
+{
+  "archive": "wp03-overleaf-update.zip",
+  "bytes": 166855,
+  "sha256": "e08a324ac37ed86a033e40d10b104a58bc3ee29e5a297f2f80fe5ae311d10c94",
+  "files": {
+    "sections/03_collapse.tex": "9b91e5516e054eea5f8f45ffff2b9814a6446aa1dd284a3f31bb0c32011057a4",
+    "figures/wp03_basins.eps": "8b388baa0d4e75c5e71f8fae36aec8824b1e9104a18eb1517cc25a47cd207821",
+    "figures/wp03_extinction.eps": "56b4fb3514cfcbb15892343ca3d09601998c51627601cec75b019413afbd4f78",
+    "figures/wp03_bottleneck_core.eps": "14800c4fa565c764099504b22cc669097e2112b75fc1fe09e8afb18a14337a86",
+    "README.txt": "a3e4115ac32ba5ebecee6d85821fff0c8776f444fe2fd6af7b62668a69b078f0"
+  },
+  "scope": "WP03 section only; copy into the current Overleaf project",
+  "compiled_pdf_included": false
+}

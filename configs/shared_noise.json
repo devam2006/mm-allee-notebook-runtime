@@ -1,0 +1,49 @@
+{
+  "schema_version": 1,
+  "scope": "Inverse convergence versus observation noise (sigma 0, 0.001, 0.005, 0.01), tanh vs swish, otherwise identical shared setting. Protocol in experiments/integration/README.md.",
+  "seeds": [
+    11,
+    22,
+    33
+  ],
+  "fixed": {
+    "n_collocation": 300,
+    "forward_adam_iters": 1000,
+    "inverse_adam_epochs": 1000,
+    "lbfgs_iters": 2500
+  },
+  "inverse": {
+    "cases_config": "configs/wp05_final.json",
+    "recovery_threshold_relative_error": 0.05,
+    "sigmas": [
+      0.0,
+      0.001,
+      0.005,
+      0.01
+    ]
+  },
+  "candidates": [
+    {
+      "id": "tanh_noise",
+      "activation": "tanh",
+      "hidden": [
+        32,
+        32
+      ],
+      "lr_net": 0.001,
+      "lr_params": 0.001,
+      "lambda_phys": 0.1
+    },
+    {
+      "id": "swish_noise",
+      "activation": "swish",
+      "hidden": [
+        32,
+        32
+      ],
+      "lr_net": 0.001,
+      "lr_params": 0.001,
+      "lambda_phys": 0.1
+    }
+  ]
+}

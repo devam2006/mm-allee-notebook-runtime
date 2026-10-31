@@ -1,0 +1,3 @@
+candidate,forward_accurate,forward_runs,inverse_recovered,inverse_fits,score,median_recovered_error,collapsed_fits,median_forward_seconds,median_inverse_seconds,inverse_by_sigma,selected
+tanh_nosel,0,0,49,72,49,7.065334e-02,12,,4.096000e+00,sigma=0: 10/18; sigma=0.001: 11/18; sigma=0.005: 12/18; sigma=0.01: 16/18,True
+swish_nosel,0,0,46,72,46,1.178644e-01,17,,5.637000e+00,sigma=0: 9/18; sigma=0.001: 10/18; sigma=0.005: 11/18; sigma=0.01: 16/18,False

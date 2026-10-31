@@ -1,0 +1,28 @@
+{
+  "schema_version": 1,
+  "scope": "Small clean synthetic reference handoff; not final inverse experimental design",
+  "units": {"time": "model_time_unit", "population": "population_unit"},
+  "fixed_reference_scales": {"time": 1.0, "population": 100.0},
+  "solver": {"rtol": 1e-9, "atol": 1e-11, "max_step": 0.1},
+  "validation": {"population_fraction_K": 5e-8, "event_atol": 1e-7},
+  "cases": [
+    {"trajectory_id": "a_regular", "model": "A", "regime": "regular_persistence",
+     "parameters": {"r": 0.7, "K": 100.0, "A": 20.0, "H": 10.0},
+     "initial_population": 45.0, "time_end": 8.0, "n_points": 101},
+    {"trajectory_id": "b_regular", "model": "B", "regime": "regular_persistence",
+     "parameters": {"r": 0.7, "K": 100.0, "A": 20.0, "h": 0.21},
+     "initial_population": 45.0, "time_end": 8.0, "n_points": 101},
+    {"trajectory_id": "a_extinction", "model": "A", "regime": "supercritical_extinction",
+     "parameters": {"r": 0.7, "K": 100.0, "A": 20.0, "H": 70.0},
+     "initial_population": 80.0, "time_end": 5.0, "n_points": 101},
+    {"trajectory_id": "b_decline", "model": "B", "regime": "subthreshold_decline",
+     "parameters": {"r": 0.7, "K": 100.0, "A": 20.0, "h": 0.21},
+     "initial_population": 10.0, "time_end": 5.0, "n_points": 101},
+    {"trajectory_id": "a_near_fold", "model": "A", "regime": "near_fold_persistence",
+     "parameters": {"r": 0.7, "K": 100.0, "A": 20.0, "H": 36.5},
+     "initial_population": 85.0, "time_end": 30.0, "n_points": 101},
+    {"trajectory_id": "b_near_fold", "model": "B", "regime": "near_fold_persistence",
+     "parameters": {"r": 0.7, "K": 100.0, "A": 20.0, "h": 0.5544},
+     "initial_population": 85.0, "time_end": 30.0, "n_points": 101}
+  ]
+}

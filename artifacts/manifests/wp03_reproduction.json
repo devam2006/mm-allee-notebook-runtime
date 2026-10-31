@@ -1,0 +1,90 @@
+{
+  "date_utc": "2026-10-28T14:15:19.933813+00:00",
+  "scope": "Agent-run WP03 reproduction and recheck in two isolated venvs; not non-author human reproduction or final group certification",
+  "source_main_base": "3cfc60658c47a4147e06cf86ed5ace3a9b620d1a",
+  "source_files_sha256": {
+    "experiments/wp03/run.py": "850a7c406311683d824e0041edecdb0a43343a89db6f2366effa81b6ef0d521e",
+    "src/mm_allee/models.py": "a2eca4c4aa9ab70107beb7725237d4b72c5cec05ab215cb27cabbeadf535887c",
+    "src/mm_allee/datasets.py": "56f01a532f8c5b5201c44fc92799c65e5b50b45064d25ce7e12aa5c0dd1a0414",
+    "src/mm_allee/solver.py": "5b5e972a52acb90ca6b1950cf3a7c7b66f3d7f219534948e052dc1b17ece8711",
+    "src/mm_allee/thresholds.py": "5dd125bcf915b1e8c4583abf0dd93c8f301d7465daca7afee44f1d4cd665f466",
+    "src/mm_allee/collapse.py": "574ade46f7a43096a7230695ff1d6d7a687ffd43ee0a408df68c7b9e9718d560",
+    "src/mm_allee/collapse_study.py": "314e51d564f7912341e67c042f62067b7a403d7c30cf307f772603010dec9b47",
+    "src/mm_allee/plotting.py": "549d490288d2e3276bda981552271c3f8c6a21c04b5e31a4e0d7aff88fcece92"
+  },
+  "environment": "artifacts/manifests/wp03_environment.txt",
+  "environment_sha256": "e19d7f5c057b40df14c07d64004c3e3532c833ce2985d67033e92b3b5a80e221",
+  "commands": [
+    {
+      "command": "python experiments/wp03/run.py --config configs/wp03.json --output results/wp03-reviewed --curate",
+      "status": "passed",
+      "observed_wall_seconds": 8.243284445999961
+    },
+    {
+      "command": "python -m pytest tests/wp03 -q",
+      "status": "passed",
+      "observed": "142 passed"
+    },
+    {
+      "command": "python -m pytest -q",
+      "status": "passed_with_optional_skip",
+      "observed": "185 passed, 1 skipped; optional Torch unavailable locally"
+    },
+    {
+      "command": "python experiments/wp03/generate_reference.py --config configs/wp03_reference.json --output results/wp03-reference",
+      "status": "passed",
+      "observed": "6 cases validated"
+    },
+    {
+      "command": "python scripts/sync_team.py --check; ruff check .; ruff format --check .; python scripts/smoke.py; git diff --check",
+      "status": "passed"
+    },
+    {
+      "command": "python scripts/assemble_notebook.py",
+      "status": "passed",
+      "observed": "21 cells; all 9 code cells passed in a fresh Python process; learning-guide Python example and file links passed"
+    },
+    {
+      "command": "latexmk -pdf -interaction=nonstopmode -halt-on-error -outdir=../results/wp03-reviewed-report main.tex (from report/)",
+      "status": "passed",
+      "observed": "6 pages; no undefined citations or overfull boxes; updated equation pages rendered for inspection"
+    }
+  ],
+  "clean_environment": {
+    "setup": "Existing second isolated venv, originally installed from the frozen requirements and this editable checkout; rerun after fixes",
+    "all_tests": "Initial clean suite 166 passed, 1 skip; post-fix full suite 185 passed, 1 skip in primary venv",
+    "numeric_tables_byte_identical": [
+      "wp03_basins.csv",
+      "wp03_bottleneck.csv",
+      "wp03_event_validation.csv",
+      "wp03_extinction.csv",
+      "wp03_sensitivity.csv",
+      "wp03_thresholds.csv",
+      "wp03_yield.csv"
+    ],
+    "summary_byte_identical": true,
+    "clean_reference_csvs_byte_identical": true,
+    "analysis_wall_seconds": 6.4252993370000695,
+    "pip_check": "No broken requirements found"
+  },
+  "max_abs_event_error_tau": 4.5571255213872064e-08,
+  "notebook_kernel_execution": "Local sockets blocked in this workspace; direct code-cell execution passed; GitHub CI exercises a full Jupyter kernel",
+  "human_understanding": "pending at user request",
+  "non_author_reproduction": "pending",
+  "submission_audit": "15 blockers in the current group scaffold; final package intentionally not produced",
+  "recheck": {
+    "reviewed_remote_base": "0015fc6875f82efb8011a13072914e4d6bd95157",
+    "existing_full_suite": "166 passed, 1 skipped",
+    "post_fix_full_suite": "185 passed, 1 skipped",
+    "post_fix_wp03_suite": "142 passed",
+    "added_regression_cases": 19,
+    "fixed": [
+      "small positive catch root brackets",
+      "close-below-boundary extinction integral conditioning",
+      "rounded A endpoint roots incorrectly labelled exact equilibria"
+    ],
+    "guide": "docs/WP03_EXPLAINED.md",
+    "guide_example_and_file_links": "passed",
+    "scope_of_error_estimates": "integration estimates exclude root/input rounding; fold_closed_form has no quadrature error estimate"
+  }
+}

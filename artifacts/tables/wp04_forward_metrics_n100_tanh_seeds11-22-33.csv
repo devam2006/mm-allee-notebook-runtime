@@ -1,0 +1,25 @@
+run_id,case,model,regime,method,seed,split,noise_sigma,rmse,mae,relative_l2,max_abs,boundary_violations,wall_seconds,status,final_loss,iterations,t_end,extinction_tau
+A_regular-rk45-None,A_regular,A,regular,rk45,,dense_reference,,7.193390e-11,2.916600e-11,7.435701e-11,9.794699e-10,0,9.000000e-03,ok,,,1.000000e+01,
+A_regular-pinn-11,A_regular,A,regular,pinn,11,dense_reference,,7.341872e-01,7.247538e-01,7.589184e-01,1.012488e+00,53,3.579500e+00,inaccurate,1.468350e-03,3500,1.000000e+01,
+A_regular-pinn-22,A_regular,A,regular,pinn,22,dense_reference,,1.859574e-05,1.620622e-05,1.922214e-05,5.395024e-05,0,2.563500e+00,ok,1.178289e-08,3500,1.000000e+01,
+A_regular-pinn-33,A_regular,A,regular,pinn,33,dense_reference,,8.249169e-01,7.898438e-01,8.527043e-01,1.043581e+00,353,2.633700e+00,inaccurate,5.747787e-02,3500,1.000000e+01,
+A_near_fold-rk45-None,A_near_fold,A,"near-fold (q=1.047 q_c, bottleneck then collapse)",rk45,,dense_reference,,1.981231e-10,1.088657e-10,3.088376e-10,1.662364e-09,0,6.900000e-03,ok,,,7.695667e+00,7.695667e+00
+A_near_fold-pinn-11,A_near_fold,A,"near-fold (q=1.047 q_c, bottleneck then collapse)",pinn,11,dense_reference,,5.823056e-02,2.946839e-02,9.077079e-02,2.211613e-01,0,2.599200e+00,inaccurate,4.091246e-06,3500,7.695667e+00,7.695667e+00
+A_near_fold-pinn-22,A_near_fold,A,"near-fold (q=1.047 q_c, bottleneck then collapse)",pinn,22,dense_reference,,3.851165e-03,1.968655e-03,6.003262e-03,1.301600e-02,0,2.577000e+00,ok,7.071816e-08,3500,7.695667e+00,7.695667e+00
+A_near_fold-pinn-33,A_near_fold,A,"near-fold (q=1.047 q_c, bottleneck then collapse)",pinn,33,dense_reference,,2.701466e-04,1.941416e-04,4.211091e-04,8.247783e-04,0,2.717300e+00,ok,1.491909e-07,3500,7.695667e+00,7.695667e+00
+A_extinction-rk45-None,A_extinction,A,subthreshold extinction,rk45,,dense_reference,,2.274435e-10,1.429440e-10,1.431918e-09,1.038411e-09,0,2.800000e-03,ok,,,2.221575e+00,2.221575e+00
+A_extinction-pinn-11,A_extinction,A,subthreshold extinction,pinn,11,dense_reference,,1.313833e-07,1.056893e-07,8.271513e-07,2.524692e-07,1,2.649900e+00,ok,1.548546e-12,3500,2.221575e+00,2.221575e+00
+A_extinction-pinn-22,A_extinction,A,subthreshold extinction,pinn,22,dense_reference,,1.879012e-08,1.543442e-08,1.182972e-07,3.762493e-08,0,2.625900e+00,ok,4.661749e-14,3500,2.221575e+00,2.221575e+00
+A_extinction-pinn-33,A_extinction,A,subthreshold extinction,pinn,33,dense_reference,,2.988048e-08,2.440372e-08,1.881189e-07,6.020383e-08,0,2.567400e+00,ok,1.098597e-13,3500,2.221575e+00,2.221575e+00
+B_regular-rk45-None,B_regular,B,regular,rk45,,dense_reference,,5.111155e-11,2.579271e-11,5.606954e-11,2.335667e-10,0,6.800000e-03,ok,,,1.000000e+01,
+B_regular-pinn-11,B_regular,B,regular,pinn,11,dense_reference,,6.650425e-01,6.609008e-01,7.295539e-01,8.398176e-01,0,2.535200e+00,inaccurate,2.867881e-06,3500,1.000000e+01,
+B_regular-pinn-22,B_regular,B,regular,pinn,22,dense_reference,,6.220541e-01,6.201896e-01,6.823954e-01,6.323869e-01,0,2.419700e+00,inaccurate,2.121335e-08,3500,1.000000e+01,
+B_regular-pinn-33,B_regular,B,regular,pinn,33,dense_reference,,8.398704e-01,8.311721e-01,9.213406e-01,9.163931e-01,88,2.540200e+00,inaccurate,1.013994e-06,3500,1.000000e+01,
+B_near_fold-rk45-None,B_near_fold,B,near-fold (e=0.975 e_c),rk45,,dense_reference,,8.811231e-11,4.772370e-11,1.288229e-10,6.001903e-10,0,5.900000e-03,ok,,,1.000000e+01,
+B_near_fold-pinn-11,B_near_fold,B,near-fold (e=0.975 e_c),pinn,11,dense_reference,,6.388307e-08,5.592485e-08,9.339901e-08,1.116176e-07,0,2.547600e+00,ok,3.766648e-14,3500,1.000000e+01,
+B_near_fold-pinn-22,B_near_fold,B,near-fold (e=0.975 e_c),pinn,22,dense_reference,,3.731359e-07,3.306636e-07,5.455360e-07,6.693856e-07,0,2.598100e+00,ok,1.814953e-12,3500,1.000000e+01,
+B_near_fold-pinn-33,B_near_fold,B,near-fold (e=0.975 e_c),pinn,33,dense_reference,,5.830246e-07,5.077296e-07,8.523998e-07,1.070119e-06,0,2.564900e+00,ok,3.249209e-12,3500,1.000000e+01,
+B_extinction-rk45-None,B_extinction,B,subthreshold (asymptotic decay),rk45,,dense_reference,,7.548135e-12,3.005270e-12,3.204704e-10,8.306683e-11,0,7.200000e-03,ok,,,1.000000e+01,
+B_extinction-pinn-11,B_extinction,B,subthreshold (asymptotic decay),pinn,11,dense_reference,,2.383087e-06,2.115167e-06,1.011785e-04,4.890867e-06,68,2.630000e+00,ok,7.219518e-11,3500,1.000000e+01,
+B_extinction-pinn-22,B_extinction,B,subthreshold (asymptotic decay),pinn,22,dense_reference,,1.921288e-06,1.693324e-06,8.157193e-05,3.053942e-06,69,2.621500e+00,ok,3.574050e-11,3500,1.000000e+01,
+B_extinction-pinn-33,B_extinction,B,subthreshold (asymptotic decay),pinn,33,dense_reference,,7.574620e-07,6.316170e-07,3.215948e-05,1.401279e-06,0,2.559600e+00,ok,4.393346e-12,3500,1.000000e+01,

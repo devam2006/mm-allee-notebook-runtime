@@ -1,0 +1,85 @@
+{
+  "schema_version": 1,
+  "date_utc": "2026-10-30T17:45:56.753346+00:00",
+  "scope": "Agent-assisted response to Raghav review on PR #4; no human approval, merge, or non-author reproduction claimed",
+  "review_url": "https://github.com/devam2006/mm-allee-harvesting/pull/4#pullrequestreview-5705535562",
+  "reviewed_head": "6ba15550b0c72447c2652870e71ed7166ab5b6d9",
+  "versions": {
+    "python": "3.14.3",
+    "numpy": "2.5.4",
+    "scipy": "1.18.1",
+    "matplotlib": "3.11.2"
+  },
+  "hardware": {
+    "platform": "Windows",
+    "machine": "AMD64",
+    "processor": "Intel64 Family 6 Model 170 Stepping 4, GenuineIntel"
+  },
+  "environment": "Existing ignored rohan-wp05-review/.venv reused with PYTHONPATH selecting this checkout; UTF-8 enabled; not a newly isolated dependency installation",
+  "regression_examples": [
+    {
+      "a": 1e-09,
+      "e": 0.5,
+      "reference": "1.5000000007500000949223872836546721046575530506378497096814088452288133335182891E-9",
+      "old_relative_error": 8.22550262335226e-09,
+      "new_relative_error": 4.673922987689936e-18
+    },
+    {
+      "a": 1e-06,
+      "e": 0.001,
+      "reference": "0.0000010010000010010009577266825607028174074877277604916433547394033825985111005971610",
+      "old_relative_error": 5.678087281286296e-11,
+      "new_relative_error": 2.604136783405548e-16
+    }
+  ],
+  "table_comparison_to_reviewed_head": {
+    "wp03_basins.csv": {
+      "changed_numeric_cells": 8,
+      "max_absolute_difference": 1.1102230246251565e-16,
+      "classification_changes": []
+    },
+    "wp03_extinction.csv": {
+      "changed_numeric_cells": 23,
+      "max_absolute_difference": 3.552713678800501e-15,
+      "classification_changes": []
+    },
+    "wp03_event_validation.csv": {
+      "changed_numeric_cells": 21,
+      "max_absolute_difference": 2.8066438062523957e-13,
+      "classification_changes": []
+    }
+  },
+  "checks": {
+    "wp03": "150 passed; python -m pytest tests/wp03 -q --basetemp results/pytest-wp03-final",
+    "full_suite": "194 passed; python -m pytest -q --basetemp results/pytest-final; optional Torch included",
+    "style": "ruff check . and ruff format --check . passed",
+    "ownership": "python scripts/sync_team.py --check passed",
+    "smoke": "python scripts/smoke.py passed",
+    "whitespace": "git diff --check passed",
+    "analysis": "python experiments/wp03/run.py --config configs/wp03.json --output results/wp03-raghav --curate",
+    "analysis_wall_seconds": 4.400426299995161,
+    "table_rows": {
+      "thresholds": 6,
+      "extinction": 427,
+      "basins": 34,
+      "bottleneck": 7,
+      "sensitivity": 6,
+      "yield": 61,
+      "event_validation": 6
+    },
+    "notebook_assembly": "21 cells; python scripts/assemble_notebook.py",
+    "notebook_direct_execution": "All 9 code cells executed in order in a fresh Python process, 10.68 seconds; includes analysis and six-case reference regeneration",
+    "notebook_kernel": "Unverified locally: jupyter and nbconvert launch attempts stalled without output and were stopped. GitHub CI runs a real kernel.",
+    "report": "Tectonic --keep-logs --outdir ../results/wp03-report main.tex from report/; six pages; WP03 pages visually inspected",
+    "report_warnings": "One underfull table-cell hbox; no overfull boxes or undefined citations",
+    "vector_pdfs": "Four one-page vector PDFs, zero embedded raster images each; basin PDF/PNG and report pages visually checked",
+    "reference_csvs": "Canonical tracked bytes unchanged; initial Windows CRLF conversion restored from Git blobs to satisfy the existing checksum contract",
+    "canonical_git_checksums": "All source/output hashes verified against staged Git blobs; curated text uses LF and manifest paths use forward slashes"
+  },
+  "remaining": [
+    "Four-human review workflow; Raghav commented, not a formal approval",
+    "WP01/WP03 fold convention reconciliation at reviewed integration",
+    "Preserve both PRs documentation/fragments; reassemble/test combined notebook when second PR merges",
+    "Final group integration and human understanding remain pending"
+  ]
+}

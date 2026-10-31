@@ -1,0 +1,37 @@
+{
+  "schema_version": 1,
+  "run_id": "wp05_experiment_1793339975",
+  "utc_timestamp": "2026-10-30T05:59:35.563652+00:00",
+  "total_wall_seconds": 464.21549154000013,
+  "cases_evaluated": [
+    "a_regular",
+    "b_regular",
+    "a_near_fold",
+    "b_near_fold",
+    "a_extinction",
+    "b_decline"
+  ],
+  "noise_sigmas": [
+    0.0,
+    0.01,
+    0.05
+  ],
+  "seeds": [
+    11,
+    22,
+    33
+  ],
+  "methods": [
+    "ODE_LS",
+    "PINN"
+  ],
+  "summary": {
+    "total_runs": 54,
+    "parameter_records": 324,
+    "prediction_records": 108
+  },
+  "output_files": {
+    "parameter_metrics": "wp05_parameter_metrics.csv",
+    "prediction_metrics": "wp05_prediction_metrics.csv"
+  }
+}

@@ -1,0 +1,20 @@
+{
+  "schema_version": 1,
+  "parameters": {"r": 0.7, "K": 100.0, "A": 20.0},
+  "units": {"time": "model_time_unit", "population": "population_unit"},
+  "a_sweep": [0.05, 0.1, 0.2, 0.5, 0.8, 0.95],
+  "curve_points": 61,
+  "initial_curve_harvest_fractions": [0.5, 1.0, 1.05, 1.2],
+  "harvest_curve_initial_x": [0.1, 0.5, 0.9],
+  "max_initial_x": 1.2,
+  "max_harvest_fraction": 1.25,
+  "basin_control_points": 61,
+  "basin_initial_points": 81,
+  "bottleneck_fractions_above_fold": [0.1, 0.03, 0.01, 0.003, 0.001, 0.0003, 0.0001],
+  "bottleneck_initial_x": 1.1,
+  "trajectory_fractions_above_fold": [0.01, 0.05, 0.2],
+  "root_tolerance": 2e-12,
+  "quadrature": {"epsabs": 1e-10, "epsrel": 1e-10},
+  "event_validation": {"relative_tolerance": 5e-7, "absolute_tau_tolerance": 2e-7},
+  "runtime_budget_seconds": 60
+}

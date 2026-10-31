@@ -1,0 +1,21 @@
+{
+  "a": 0.2,
+  "model_A": {
+    "x_star": 0.7055050463303894,
+    "q_c": 0.5251380432416967,
+    "N_star_tonnes": 705.5050463303894,
+    "H_c_tonnes_per_year": 262.56902162084833
+  },
+  "logistic": {
+    "x_star": 0.5,
+    "q_c": 0.25,
+    "N_star_tonnes": 500.0,
+    "H_c_tonnes_per_year": 125.0
+  },
+  "dimensional_example": {
+    "note": "Illustrative parameter values only (not a real stock); used to state thresholds with units",
+    "r_per_year": 0.5,
+    "K_tonnes": 1000.0,
+    "A_tonnes": 200.0
+  }
+}

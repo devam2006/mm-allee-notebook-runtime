@@ -1,0 +1,115 @@
+{
+  "schema_version": 1,
+  "timestamp_utc": "2026-10-30T18:57:05.582783+00:00",
+  "scope": "WP03-owned unsupported-RK45-tolerance fix and latest-head integration diagnostics; no human approval or merge",
+  "source_parent_sha": "2a2f6736285c43a76f32f919af5d5f66c93bf402",
+  "git_dirty": true,
+  "source_sha256": {
+    "src/mm_allee/solver.py": "ecbcd509c1221c8ec5538e974f9ec0741e660ccb26dc7d608a5c1675ea5c7695",
+    "src/mm_allee/datasets.py": "628690be8d8dbac75468af31d9af99606f4980ee675b24dc16fca5e1d12bbae1",
+    "tests/wp03/test_solver_sampling.py": "be07e9d4da6b02c6f5b259b4fe0aee7db3aebda742e34a33a0fc5431965aeae2",
+    "tests/wp03/test_reference_datasets.py": "1eaf2f3c8a703e13843dd8ac90d43c36d1944edd4380f888d0c71c24297d5e69",
+    "src/mm_allee/reference_validation.py": "3954868e50a18c1e36f3fc7023104ff613f3624f966391986c77f9596bf27547"
+  },
+  "versions": {
+    "python": "3.14.3",
+    "numpy": "2.5.4",
+    "scipy": "1.18.1",
+    "matplotlib": "3.11.2"
+  },
+  "regression": {
+    "requested_rtol_before": 1e-16,
+    "effective_RK45_rtol_before": 2.220446049250313e-14,
+    "after": "Reject below supported floor before integration or reference output creation",
+    "new_regression_cases": 8,
+    "accepted_floor_refinement": "Clamp requested refinement rtol to supported floor, tighten atol/max_step, and record effective rtol/floor flag"
+  },
+  "checks": {
+    "wp03_tests": 158,
+    "full_tests": 201,
+    "skipped": "1 optional Torch test; Torch absent",
+    "lint": "passed",
+    "format": "passed",
+    "ownership": "passed",
+    "smoke": "passed",
+    "whitespace": "passed"
+  },
+  "unchanged_analysis_tables": {
+    "wp03_basins.csv": {
+      "same_as_pre_fix": true,
+      "rows": 34,
+      "sha256": "a9abcba02639a95e5f893d737447093ffa9d6c4b451cb31dc07fc358530c2a43"
+    },
+    "wp03_bottleneck.csv": {
+      "same_as_pre_fix": true,
+      "rows": 7,
+      "sha256": "357c547f394682dfccf065f891e318a77f59e6e80fe5a183ab179c438c7d2008"
+    },
+    "wp03_event_validation.csv": {
+      "same_as_pre_fix": true,
+      "rows": 6,
+      "sha256": "681ccf58ab7e2af34e3ee71f7d46f1c3463cb5fcae25dccf68398631d5d75b6d"
+    },
+    "wp03_extinction.csv": {
+      "same_as_pre_fix": true,
+      "rows": 427,
+      "sha256": "92dcbbafe744ecaf0c73998e8c939909fc2014df605d949ce1e9485a3fa3f6cd"
+    },
+    "wp03_sensitivity.csv": {
+      "same_as_pre_fix": true,
+      "rows": 6,
+      "sha256": "028ceb115bc361d843f90f05e96b1d17d551992b142d28a18d7cc01a4dacc938"
+    },
+    "wp03_thresholds.csv": {
+      "same_as_pre_fix": true,
+      "rows": 6,
+      "sha256": "50db09da91221edc79893e1082d15b5f0ee09b7e412de68afd79ffd6c2644ce9"
+    },
+    "wp03_yield.csv": {
+      "same_as_pre_fix": true,
+      "rows": 61,
+      "sha256": "960ee994d0073bbb817a85f6b17ac048e1711fea0bcef5155401db6b3d893f0e"
+    }
+  },
+  "unchanged_default_references": {
+    "a_regular": {
+      "same_time_population_and_event_as_2a2f673": true
+    },
+    "b_regular": {
+      "same_time_population_and_event_as_2a2f673": true
+    },
+    "a_extinction": {
+      "same_time_population_and_event_as_2a2f673": true
+    },
+    "b_decline": {
+      "same_time_population_and_event_as_2a2f673": true
+    },
+    "a_near_fold": {
+      "same_time_population_and_event_as_2a2f673": true
+    },
+    "b_near_fold": {
+      "same_time_population_and_event_as_2a2f673": true
+    }
+  },
+  "combined_diagnostic": {
+    "WP01": "f427d5ff96814844db5b5f9b93c324134e5cf7d7",
+    "WP02": "a6ad5d3088ec383faed7af3dcad32c9115239023",
+    "WP03_base": "2a2f6736285c43a76f32f919af5d5f66c93bf402",
+    "WP03_patch": "The source hashes recorded above",
+    "WP02_proposal": "Remove obsolete FOLD_TOL import; preserve 1e-12 comparison input exclusion as a local constant",
+    "tests_passed": 408,
+    "tests_skipped": 1,
+    "notebook_cells_passed": 17,
+    "notebook_seconds": 41.86,
+    "notebook_method": "Fresh Python process, Agg plotting backend; not Jupyter kernel execution",
+    "merged": false,
+    "owner_branches_modified": "WP03 only; WP02 proposal remains temporary"
+  },
+  "limitations": [
+    "No change to fold policy; owner agreement pending",
+    "No report or slide re-render in this numerical preflight follow-up",
+    "No human approval or non-author human reproduction",
+    "New commit CI status must be checked separately"
+  ],
+  "new_refinement_followup_parent_sha": "284a61b8696698a1d2ca166e094e3714cf8fc5b4"
+}

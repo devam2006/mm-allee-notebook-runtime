@@ -1,0 +1,73 @@
+{
+  "automated_ready": false,
+  "blockers": [
+    {
+      "kind": "missing_file",
+      "path": "report/main.pdf"
+    },
+    {
+      "kind": "missing_file",
+      "path": "artifacts/manifests/final_environment.txt"
+    },
+    {
+      "kind": "missing_file",
+      "path": "artifacts/manifests/final_reproduction.json"
+    },
+    {
+      "kind": "unfinished_content",
+      "path": "report/main.tex"
+    },
+    {
+      "kind": "unfinished_content",
+      "path": "report/sections/01_foundations.tex"
+    },
+    {
+      "kind": "unfinished_content",
+      "path": "report/sections/02_model_b_history.tex"
+    },
+    {
+      "kind": "unfinished_content",
+      "path": "report/sections/04_forward_pinn.tex"
+    },
+    {
+      "kind": "unfinished_content",
+      "path": "report/sections/05_inverse_validation.tex"
+    },
+    {
+      "kind": "unfinished_content",
+      "path": "notebooks/project.ipynb"
+    },
+    {
+      "kind": "unfinished_content",
+      "path": "notebooks/sections/01_foundations.ipynb"
+    },
+    {
+      "kind": "unfinished_content",
+      "path": "notebooks/sections/02_model_b_history.ipynb"
+    },
+    {
+      "kind": "unfinished_content",
+      "path": "notebooks/sections/04_forward_pinn.ipynb"
+    },
+    {
+      "kind": "unfinished_content",
+      "path": "notebooks/sections/05_inverse_validation.ipynb"
+    },
+    {
+      "kind": "missing_author_names",
+      "path": "team.json"
+    },
+    {
+      "kind": "missing_presentation_datetime",
+      "path": "team.json"
+    }
+  ],
+  "human_verification_required": [
+    "all five scientific sections and disclosures checked",
+    "four current human approvals",
+    "independent non-author reproduction",
+    "all members understand the work",
+    "presentation rehearsed and submission timing checked"
+  ],
+  "scope": "File/readiness audit only; cannot certify scientific correctness or human approval"
+}

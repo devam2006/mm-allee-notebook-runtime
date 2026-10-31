@@ -1,0 +1,90 @@
+{
+  "schema_version": 1,
+  "scope": "Shared-settings study, stage 2: inverse-only knobs (lambda_phys, lr_params) on the stage-1 winner tanh_32x32_lr0.001. Forward is unaffected by these knobs and is not re-run.",
+  "seeds": [
+    0,
+    1,
+    42
+  ],
+  "fixed": {
+    "n_collocation": 300,
+    "forward_adam_iters": 1000,
+    "inverse_adam_epochs": 1000,
+    "lbfgs_iters": 2500
+  },
+  "inverse": {
+    "cases_config": "configs/wp05_final.json",
+    "recovery_threshold_relative_error": 0.05,
+    "sigmas": [
+      0.0
+    ]
+  },
+  "candidates": [
+    {
+      "id": "tanh_32x32_lr0.001_lam0.1_lrp0.001",
+      "activation": "tanh",
+      "hidden": [
+        32,
+        32
+      ],
+      "lr_net": 0.001,
+      "lr_params": 0.001,
+      "lambda_phys": 0.1
+    },
+    {
+      "id": "tanh_32x32_lr0.001_lam0.1_lrp0.01",
+      "activation": "tanh",
+      "hidden": [
+        32,
+        32
+      ],
+      "lr_net": 0.001,
+      "lr_params": 0.01,
+      "lambda_phys": 0.1
+    },
+    {
+      "id": "tanh_32x32_lr0.001_lam1_lrp0.001",
+      "activation": "tanh",
+      "hidden": [
+        32,
+        32
+      ],
+      "lr_net": 0.001,
+      "lr_params": 0.001,
+      "lambda_phys": 1.0
+    },
+    {
+      "id": "tanh_32x32_lr0.001_lam1_lrp0.01",
+      "activation": "tanh",
+      "hidden": [
+        32,
+        32
+      ],
+      "lr_net": 0.001,
+      "lr_params": 0.01,
+      "lambda_phys": 1.0
+    },
+    {
+      "id": "tanh_32x32_lr0.001_lam10_lrp0.001",
+      "activation": "tanh",
+      "hidden": [
+        32,
+        32
+      ],
+      "lr_net": 0.001,
+      "lr_params": 0.001,
+      "lambda_phys": 10.0
+    },
+    {
+      "id": "tanh_32x32_lr0.001_lam10_lrp0.01",
+      "activation": "tanh",
+      "hidden": [
+        32,
+        32
+      ],
+      "lr_net": 0.001,
+      "lr_params": 0.01,
+      "lambda_phys": 10.0
+    }
+  ]
+}

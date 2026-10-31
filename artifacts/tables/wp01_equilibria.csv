@@ -1,0 +1,63 @@
+model,a,q,q_over_qc,regime,x,domain_status,physical,multiplicity,derivative,left_sign,right_sign,stability,attracts_from,residual,note
+logistic,,0,0,zero_harvest,0,physical_population,True,1,1,,1,unstable,neither,0,extinct state; unstable for logistic growth
+logistic,,0,0,zero_harvest,1,physical_population,True,1,-1,1,-1,stable,both,0,carrying capacity
+logistic,,0.1,0.4,subcritical,0.112701665379258,physical_population,True,1,0.774596669241483,-1,1,unstable,neither,0,harvest-induced threshold
+logistic,,0.1,0.4,subcritical,0.887298334620742,physical_population,True,1,-0.774596669241483,1,-1,stable,both,1.38777878078145e-17,persistent state
+logistic,,0.2,0.8,subcritical,0.276393202250021,physical_population,True,1,0.447213595499958,-1,1,unstable,neither,0,harvest-induced threshold
+logistic,,0.2,0.8,subcritical,0.723606797749979,physical_population,True,1,-0.447213595499958,1,-1,stable,both,0,persistent state
+logistic,,0.25,1,critical,0.5,physical_population,True,2,0,-1,-1,semistable,above,0,fold: double root at x=1/2 (maximum sustainable constant yield)
+logistic,,0.3,1.2,supercritical,,none,,0,,,,no_equilibrium,,,no root of the cubic/quadratic; collapse from every start
+A,0.1,0,0,zero_harvest,0,physical_population,True,1,-1,,-1,stable,above,0,extinct state; stable under strong Allee growth
+A,0.1,0,0,zero_harvest,0.1,physical_population,True,1,0.9,-1,1,unstable,neither,0,Allee threshold (minimum viable population)
+A,0.1,0,0,zero_harvest,1,physical_population,True,1,-9,1,-1,stable,both,0,carrying capacity
+A,0.1,0.126228494317735,0.1,subcritical,-0.0695892388227146,excluded_negative_root,False,1,-2.67624311889747,,,excluded,neither,0,negative algebraic root; not a population
+A,0.1,0.126228494317735,0.1,subcritical,0.184052904553067,physical_population,True,1,2.03289974993486,-1,1,unstable,neither,2.77555756156289e-17,harvest-shifted Allee threshold
+A,0.1,0.126228494317735,0.1,subcritical,0.985536334269648,physical_population,True,1,-8.45665663103739,1,-1,stable,both,2.22044604925031e-16,persistent state
+A,0.1,0.631142471588674,0.5,subcritical,-0.186038807712055,excluded_negative_root,False,1,-6.1311669089129,,,excluded,neither,2.22044604925031e-16,negative algebraic root; not a population
+A,0.1,0.631142471588674,0.5,subcritical,0.370584407430866,physical_population,True,1,3.03287287255247,-1,1,unstable,neither,1.11022302462516e-16,harvest-shifted Allee threshold
+A,0.1,0.631142471588674,0.5,subcritical,0.915454400281189,physical_population,True,1,-6.00170596363957,1,-1,stable,both,2.22044604925031e-16,persistent state
+A,0.1,1.19917069601848,0.95,subcritical,-0.262253668942444,excluded_negative_root,False,1,-8.83289032294696,,,excluded,neither,0,negative algebraic root; not a population
+A,0.1,1.19917069601848,0.95,subcritical,0.599409382685659,physical_population,True,1,1.40825817753642,-1,1,unstable,neither,0,harvest-shifted Allee threshold
+A,0.1,1.19917069601848,0.95,subcritical,0.762844286256786,physical_population,True,1,-1.67536785458945,1,-1,stable,both,0,persistent state
+A,0.1,1.26228368089241,0.999999,subcritical,-0.269292662231959,excluded_negative_root,False,1,-9.09999470706238,,,excluded,neither,2.22044604925031e-16,negative algebraic root; not a population
+A,0.1,1.26228368089241,0.999999,subcritical,0.684282568225372,physical_population,True,1,0.0069375056448493,-1,1,unstable,neither,0,harvest-shifted Allee threshold
+A,0.1,1.26228368089241,0.999999,subcritical,0.685010094006601,physical_population,True,1,-0.00694279858273639,1,-1,stable,both,0,persistent state
+A,0.1,1.26228494317735,1,critical,-0.26929280094463,excluded_negative_root,False,1,-9.1,,,excluded,neither,0,negative algebraic root; not a population
+A,0.1,1.26228494317735,1,critical,0.684646400472315,physical_population,True,2,1.77635683940025e-15,-1,-1,semistable,above,4.44089209850063e-16,"fold: double root, one-sided signs decide stability"
+A,0.1,1.51474193181282,1.2,supercritical,-0.29556795553765,excluded_negative_root,False,1,-10.1233075120495,,,excluded,neither,4.44089209850063e-16,negative algebraic root; not a population
+A,0.2,0,0,zero_harvest,0,physical_population,True,1,-1,,-1,stable,above,0,extinct state; stable under strong Allee growth
+A,0.2,0,0,zero_harvest,0.2,physical_population,True,1,0.8,-1,1,unstable,neither,0,Allee threshold (minimum viable population)
+A,0.2,0,0,zero_harvest,1,physical_population,True,1,-4,1,-1,stable,both,0,carrying capacity
+A,0.2,0.0525138043241697,0.1,subcritical,-0.0417117294745609,excluded_negative_root,False,1,-1.52663877933112,,,excluded,neither,6.93889390390723e-18,negative algebraic root; not a population
+A,0.2,0.0525138043241697,0.1,subcritical,0.255249435590521,physical_population,True,1,1.08570911154706,-1,1,unstable,neither,1.38777878078145e-17,harvest-shifted Allee threshold
+A,0.2,0.0525138043241697,0.1,subcritical,0.98646229388404,physical_population,True,1,-3.75907033221594,1,-1,stable,both,5.55111512312578e-17,persistent state
+A,0.2,0.262569021620848,0.5,subcritical,-0.137033582758783,excluded_negative_root,False,1,-2.92607603516102,,,excluded,neither,1.11022302462516e-16,negative algebraic root; not a population
+A,0.2,0.262569021620848,0.5,subcritical,0.416135733766208,physical_population,True,1,1.39609457143739,-1,1,unstable,neither,5.55111512312578e-17,harvest-shifted Allee threshold
+A,0.2,0.262569021620848,0.5,subcritical,0.920897848992575,physical_population,True,1,-2.67001853627637,1,-1,stable,both,5.55111512312578e-17,persistent state
+A,0.2,0.498881141079612,0.95,subcritical,-0.204671065455198,excluded_negative_root,False,1,-4.08440646098086,,,excluded,neither,0,negative algebraic root; not a population
+A,0.2,0.498881141079612,0.95,subcritical,0.626311346109411,physical_population,True,1,0.631747619332196,-1,1,unstable,neither,0,harvest-shifted Allee threshold
+A,0.2,0.498881141079612,0.95,subcritical,0.778359719345787,physical_population,True,1,-0.74734115835134,1,-1,stable,both,5.55111512312578e-17,persistent state
+A,0.2,0.525137518103653,0.999999,subcritical,-0.211009967627877,excluded_negative_root,False,1,-4.19999770810929,,,excluded,neither,0,negative algebraic root; not a population
+A,0.2,0.525137518103653,0.999999,subcritical,0.705166465667576,physical_population,True,1,0.00310142347940356,-1,1,unstable,neither,0,harvest-shifted Allee threshold
+A,0.2,0.525137518103653,0.999999,subcritical,0.705843501960354,physical_population,True,1,-0.00310371537059773,1,-1,stable,both,0,persistent state
+A,0.2,0.525138043241697,1,critical,-0.211010092660779,excluded_negative_root,False,1,-4.2,,,excluded,neither,2.22044604925031e-16,negative algebraic root; not a population
+A,0.2,0.525138043241697,1,critical,0.705505046330389,physical_population,True,2,-8.88178419700125e-16,-1,-1,semistable,above,1.11022302462516e-16,"fold: double root, one-sided signs decide stability"
+A,0.2,0.630165651890036,1.2,supercritical,-0.23476890166034,excluded_negative_root,False,1,-4.64397337772611,,,excluded,neither,1.11022302462516e-16,negative algebraic root; not a population
+A,0.3,0,0,zero_harvest,0,physical_population,True,1,-1,,-1,stable,above,0,extinct state; stable under strong Allee growth
+A,0.3,0,0,zero_harvest,0.3,physical_population,True,1,0.7,-1,1,unstable,neither,0,Allee threshold (minimum viable population)
+A,0.3,0,0,zero_harvest,1,physical_population,True,1,-2.33333333333333,1,-1,stable,both,0,carrying capacity
+A,0.3,0.0282510459004428,0.1,subcritical,-0.0254005943484242,excluded_negative_root,False,1,-1.22659038628554,,,excluded,neither,3.46944695195361e-18,negative algebraic root; not a population
+A,0.3,0.0282510459004428,0.1,subcritical,0.337883855120266,physical_population,True,1,0.78667174886631,-1,1,unstable,neither,2.77555756156289e-17,harvest-shifted Allee threshold
+A,0.3,0.0282510459004428,0.1,subcritical,0.987516739228158,physical_population,True,1,-2.1934146959141,1,-1,stable,both,1.73472347597681e-17,persistent state
+A,0.3,0.141255229502214,0.5,subcritical,-0.0972276141737142,excluded_negative_root,False,1,-1.93717141241798,,,excluded,neither,0,negative algebraic root; not a population
+A,0.3,0.141255229502214,0.5,subcritical,0.470114038884237,physical_population,True,1,0.864249574769556,-1,1,unstable,neither,5.55111512312578e-17,harvest-shifted Allee threshold
+A,0.3,0.141255229502214,0.5,subcritical,0.927113575289478,physical_population,True,1,-1.5604114956849,1,-1,stable,both,2.77555756156289e-17,persistent state
+A,0.3,0.268384936054206,0.95,subcritical,-0.153782688332029,excluded_negative_root,False,1,-2.56927445118384,,,excluded,neither,5.55111512312578e-17,negative algebraic root; not a population
+A,0.3,0.268384936054206,0.95,subcritical,0.657577448292157,physical_population,True,1,0.374923546841116,-1,1,unstable,neither,5.55111512312578e-17,harvest-shifted Allee threshold
+A,0.3,0.268384936054206,0.95,subcritical,0.796205240039871,physical_population,True,1,-0.438982428990608,1,-1,stable,both,0,persistent state
+A,0.3,0.282510176493969,0.999999,subcritical,-0.159212853871894,excluded_negative_root,False,1,-2.63333206193674,,,excluded,neither,0,negative algebraic root; not a population
+A,0.3,0.282510176493969,0.999999,subcritical,0.729297631300986,physical_population,True,1,0.00182912106292044,-1,1,unstable,neither,0,harvest-shifted Allee threshold
+A,0.3,0.282510176493969,0.999999,subcritical,0.729915222570937,physical_population,True,1,-0.00183039245968786,1,-1,stable,both,0,persistent state
+A,0.3,0.282510459004428,1,critical,-0.159212961154373,excluded_negative_root,False,1,-2.63333333333333,,,excluded,neither,5.55111512312578e-17,negative algebraic root; not a population
+A,0.3,0.282510459004428,1,critical,0.729606480577186,physical_population,True,2,0,-1,-1,semistable,above,0,"fold: double root, one-sided signs decide stability"
+A,0.3,0.339012550805313,1.2,supercritical,-0.179712914489099,excluded_negative_root,False,1,-2.88047924191385,,,excluded,neither,5.55111512312578e-17,negative algebraic root; not a population

@@ -1,0 +1,117 @@
+{
+  "schema_version": 1,
+  "run_id": "fc04b860-ec95-44f7-907d-d0682bc84b42",
+  "task": "WP01",
+  "utc_timestamp": "2026-10-29T21:34:29+00:00",
+  "git_sha": "c47084ea3d9748631d7f45dd530a8b861e46e7e4",
+  "git_dirty": false,
+  "command": "python experiments/wp01/run.py --config configs/wp01.json --output results/wp01",
+  "config": {
+    "schema_version": 1,
+    "scope": "WP01 foundations: logistic baseline and Model A equilibria/stability (analytical + root finding)",
+    "units": "dimensionless: x=N/K, tau=r*t, a=A/K, q=H/(r*K)",
+    "a": 0.2,
+    "figure_logistic_q": [
+      0.1,
+      0.25,
+      0.35
+    ],
+    "figure_allee_q_fraction_of_qc": [
+      0.25,
+      1.0,
+      1.2
+    ],
+    "branch_n_q": 400,
+    "perturbation": {
+      "q": 0.3,
+      "delta": 0.01,
+      "tau_end": 12.0
+    },
+    "table_cases": {
+      "logistic": [
+        0.0,
+        0.1,
+        0.2,
+        0.25,
+        0.3
+      ],
+      "A": {
+        "a_values": [
+          0.1,
+          0.2,
+          0.3
+        ],
+        "q_fraction_of_qc": [
+          0.0,
+          0.1,
+          0.5,
+          0.95,
+          0.999999,
+          1.0,
+          1.2
+        ]
+      }
+    },
+    "dimensional_example": {
+      "note": "Illustrative parameter values only (not a real stock); used to state thresholds with units",
+      "r_per_year": 0.5,
+      "K_tonnes": 1000.0,
+      "A_tonnes": 200.0
+    },
+    "solver": {
+      "method": "RK45",
+      "rtol": 1e-09,
+      "atol": 1e-11,
+      "max_step": 0.1
+    },
+    "seeds": []
+  },
+  "seeds": [],
+  "models": [
+    "logistic",
+    "A"
+  ],
+  "units": "dimensionless: x=N/K, tau=r*t, a=A/K, q=H/(r*K)",
+  "data_type": "analytical/numerical root finding and RK45 simulation; no observations",
+  "root_finding": {
+    "method": "scipy.optimize.brentq on calculus-derived brackets",
+    "brent_relative_tolerance": 8.881784197001252e-16,
+    "fold_relative_tolerance_q": 1.4210854715202004e-14,
+    "sign_probe_max_offset": 0.0001
+  },
+  "solver_effective": {
+    "method": "RK45",
+    "rtol": 1e-09,
+    "atol": 1e-11,
+    "max_step": 0.1,
+    "event_policy": "stop at first downward zero for q>0"
+  },
+  "versions": {
+    "python": "3.13.17",
+    "numpy": "2.5.4",
+    "scipy": "1.18.1",
+    "matplotlib": "3.11.2",
+    "mm_allee": "0.1.0"
+  },
+  "hardware": {
+    "platform": "Linux-6.18.44-fc-v185-x86_64-with-glibc2.39",
+    "machine": "x86_64",
+    "processor": "x86_64"
+  },
+  "table_rows": 62,
+  "elapsed_seconds": 3.505,
+  "status": "success",
+  "outputs": {
+    "figures/wp01_logistic_vs_allee.png": "7d06ee88ae1ff0fc12832e8524bda569456cadf323718c90b8fd8cc815160ee7",
+    "figures/wp01_logistic_vs_allee.eps": "01cafb74d2b12325efddc584c250a4dc4cafe9c03d8fe33e1fb6d0bfa200b7d4",
+    "figures/wp01_logistic_vs_allee.pdf": "5f297a044c50f15653918aa383858c7010d05ba8cfbc46a744f7b81d63597bea",
+    "figures/wp01_model_a_branches.png": "65eafdb1d97c3c8de55f80b75b6ac42874135f3df7bc19a72ab417fa1052ef2a",
+    "figures/wp01_model_a_branches.eps": "d426d8a8ea03d59b0336ddcb04fa4e8033281b3531725ca2fd37114f55bf7a3c",
+    "figures/wp01_model_a_branches.pdf": "b2b902439eec2dc731a86c0dcc2d20389a9ba94d4c5f16e30b1a8aab1f61fcfa",
+    "figures/wp01_model_a_perturbations.png": "8c56e4513bece038bc90668ba1e3ea83801d854b7cfb74bb70a99aed666a7dbd",
+    "figures/wp01_model_a_perturbations.eps": "78d2f45d3f1cec66f1a479697bb9b1837d00b54b458f8b58fcec83842206b63b",
+    "figures/wp01_model_a_perturbations.pdf": "6c597b40e97daf81093a3a73985443408c7a732d7f19fbb3d5b604301442b046",
+    "tables/wp01_equilibria.csv": "0a276160b1d0de4c6537a30875df7c9868d92e42b40c100980af2d8a6c1f57fe",
+    "tables/wp01_thresholds.json": "91c313dbc18de04beb317496c4f97983f7aa9b9dcba7bf00d79a9cafca3b1b58"
+  }
+}

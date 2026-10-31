@@ -1,0 +1,105 @@
+{
+  "schema_version": 1,
+  "source_commit": "0a0b4e4d2a041df7cbad6d65d03b620781ec4b62",
+  "branch": "wp05/rohan-inverse-validation",
+  "python": "3.14.3 (tags/v3.14.3:323c59a, Feb  3 2026, 16:04:56) [MSC v.1944 64 bit (AMD64)]",
+  "platform": "win32",
+  "versions": {
+    "numpy": "2.5.4",
+    "scipy": "1.18.1",
+    "torch": "2.15.0",
+    "matplotlib": "3.11.2",
+    "pytest": "9.2.0",
+    "ruff": "0.17.3",
+    "nbformat": "5.11.1",
+    "nbconvert": "7.17.2"
+  },
+  "tests": {
+    "wp05": {
+      "passed": 27,
+      "failed": 0,
+      "seconds": 43.34
+    },
+    "full": {
+      "passed": 207,
+      "failed": 0,
+      "seconds": 11.89
+    },
+    "initial_full": {
+      "passed": 205,
+      "failed": 2,
+      "reason": "Inherited WP03 output hashes changed solely by CRLF checkout conversion; canonical Git blobs verified against expected hashes and restored locally, no source/index changes."
+    }
+  },
+  "ownership_sync": "pass_no_changes",
+  "notebook_assembly": {
+    "status": "pass",
+    "cells": 30
+  },
+  "lint": {
+    "status": "fail",
+    "errors_after_assembly": 35
+  },
+  "format": {
+    "status": "fail",
+    "files_needing_format": 10
+  },
+  "whitespace": {
+    "status": "fail",
+    "submitted_latex_trailing_spaces": 3
+  },
+  "smoke": {
+    "schema_version": 1,
+    "run_id": "wp05_experiment_1793305901",
+    "utc_timestamp": "2026-10-29T20:31:41.981019+00:00",
+    "total_wall_seconds": 7.842488399997819,
+    "cases_evaluated": [
+      "a_regular",
+      "b_regular"
+    ],
+    "noise_sigmas": [
+      0.0,
+      0.01
+    ],
+    "seeds": [
+      11
+    ],
+    "methods": [
+      "ODE_LS",
+      "PINN"
+    ],
+    "summary": {
+      "total_runs": 4,
+      "parameter_records": 24,
+      "prediction_records": 8
+    },
+    "output_files": {
+      "parameter_metrics": "wp05_parameter_metrics.csv",
+      "prediction_metrics": "wp05_prediction_metrics.csv"
+    }
+  },
+  "notebook_execution": {
+    "fresh_process_code_cells": {
+      "status": "pass",
+      "count": 13,
+      "wall_seconds": 20.3024551
+    },
+    "jupyter_clean_kernel": {
+      "status": "not_verified",
+      "reason": "nbconvert launch stalled before output and was stopped during bounded intake verification; no clean-kernel success claimed."
+    }
+  },
+  "limitations": [
+    "No full final-sweep reproduction",
+    "No LaTeX compile",
+    "No independent teammate reproduction or human approvals",
+    "WP04 JAX compatibility unresolved",
+    "Unit-test pass does not establish all scientific acceptance claims"
+  ],
+  "evidence_sha256": {
+    "configs/wp05_smoke.json": "c89e73ad365d5a98a71d93aa08723ca34e1dd90c2b6f33496505bcb75faf40b0",
+    "experiments/wp05/run.py": "6a44eee454534f7577dc4433376af63c44587024685ace55b8ba73ad1e2d22a9",
+    "artifacts/tables/wp05_intake_smoke_prediction.csv": "d32d5c5b40fbb5421ebf240c8e438a7096f4cd105e63f92586063dbd80e69f41",
+    "artifacts/tables/wp05_intake_smoke_parameter.csv": "a4d649bc9c4bc73eb17da7118899c10ffa6121b65eba2259612b4d63f00dfbd7"
+  }
+}

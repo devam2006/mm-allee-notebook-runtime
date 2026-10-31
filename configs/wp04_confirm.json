@@ -1,0 +1,88 @@
+{
+  "schema_version": 1,
+  "scope": "Held-out confirmation of the frozen final design (swish, 300 uniform points) on seeds 11/22/33, which were not used to select swish (selection used seeds 0/1/42). Nothing else changed. Shared setting adopted on the integration branch: tanh, 2x32, network lr 1e-3, 300 points, Adam 1000 + L-BFGS 2500.",
+  "manifest_name": "wp04_confirmation.json",
+  "seeds": [
+    11,
+    22,
+    33
+  ],
+  "reference": {
+    "method": "DOP853",
+    "rtol": 1e-12,
+    "atol": 1e-14,
+    "n_points": 1001
+  },
+  "inaccuracy_threshold_relative_l2": 0.05,
+  "save_checkpoints": true,
+  "training": {
+    "layers": [
+      1,
+      32,
+      32,
+      1
+    ],
+    "n_collocation": 300,
+    "lr": 0.001,
+    "adam_iters": 1000,
+    "lbfgs_iters": 2500,
+    "time_budget_s": 300,
+    "activation": "tanh"
+  },
+  "cases": [
+    {
+      "id": "A_regular",
+      "model": "A",
+      "regime": "regular",
+      "a": 0.2,
+      "harvest": 0.1,
+      "x0": 0.8,
+      "tau_end": 10.0
+    },
+    {
+      "id": "A_near_fold",
+      "model": "A",
+      "regime": "near-fold (q=1.047 q_c, bottleneck then collapse)",
+      "a": 0.2,
+      "harvest": 0.55,
+      "x0": 0.8,
+      "tau_end": 10.0
+    },
+    {
+      "id": "A_extinction",
+      "model": "A",
+      "regime": "subthreshold extinction",
+      "a": 0.2,
+      "harvest": 0.1,
+      "x0": 0.25,
+      "tau_end": 10.0
+    },
+    {
+      "id": "B_regular",
+      "model": "B",
+      "regime": "regular",
+      "a": 0.2,
+      "harvest": 0.3,
+      "x0": 0.8,
+      "tau_end": 10.0
+    },
+    {
+      "id": "B_near_fold",
+      "model": "B",
+      "regime": "near-fold (e=0.975 e_c)",
+      "a": 0.2,
+      "harvest": 0.78,
+      "x0": 0.8,
+      "tau_end": 10.0
+    },
+    {
+      "id": "B_extinction",
+      "model": "B",
+      "regime": "subthreshold (asymptotic decay)",
+      "a": 0.2,
+      "harvest": 0.3,
+      "x0": 0.1,
+      "tau_end": 10.0
+    }
+  ]
+}

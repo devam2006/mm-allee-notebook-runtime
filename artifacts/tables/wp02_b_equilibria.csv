@@ -1,0 +1,13 @@
+model,a,e,x,physical,multiplicity,derivative,left_sign,right_sign,stability,attracts_from,residual,note
+B,0.2,0.0,0.0,True,1,-1.0,,-1,stable,above,0.0,zero equilibrium
+B,0.2,0.0,0.2,True,1,0.8000000000000002,-1,1,unstable,neither,0.0,basin boundary
+B,0.2,0.0,1.0,True,1,-4.0,1,-1,stable,both,0.0,populated state
+B,0.2,0.4000000000000001,0.0,True,1,-1.4000000000000001,,-1,stable,above,0.0,zero equilibrium
+B,0.2,0.4000000000000001,0.317157287525381,True,1,0.8970562748477142,-1,1,unstable,neither,0.0,basin boundary
+B,0.2,0.4000000000000001,0.882842712474619,True,1,-2.4970562748477145,1,-1,stable,both,5.551115123125783e-17,populated state
+B,0.2,0.7999992000000001,0.0,True,1,-1.7999992000000002,,-1,stable,above,0.0,zero equilibrium
+B,0.2,0.7999992000000001,0.5995999999999945,True,1,0.0023984000000344618,-1,1,unstable,neither,1.1102230246251565e-16,basin boundary
+B,0.2,0.7999992000000001,0.6004000000000057,True,1,-0.0024016000000345525,1,-1,stable,both,1.6653345369377348e-16,populated state
+B,0.2,0.8000000000000002,0.0,True,1,-1.8000000000000003,,-1,stable,above,0.0,zero equilibrium
+B,0.2,0.8000000000000002,0.6,True,2,0.0,-1,-1,semistable,above,2.220446049250313e-16,fold
+B,0.2,0.9600000000000002,0.0,True,1,-1.9600000000000002,,-1,stable,above,0.0,zero equilibrium

@@ -1,0 +1,252 @@
+{
+  "schema_version": 1,
+  "run_id": "wp03-clean-reference-v1",
+  "status": "passed",
+  "is_synthetic": true,
+  "evaluation_metadata_only": true,
+  "scope": "RK45 reference milestone only; no noisy observations, splits or inference",
+  "generated_at_utc": "2026-10-19T17:12:30.781980+00:00",
+  "git_sha": "5c5a48edb974afcdb25d3dc15c9a23006d08e5c4",
+  "git_dirty": true,
+  "source_files_sha256": {
+    "experiments/wp03/generate_reference.py": "202a5762e6dc49d07b0370287cbf0bc588cbae1018b3c9c898158f70f9cab5af",
+    "src/mm_allee/models.py": "a2eca4c4aa9ab70107beb7725237d4b72c5cec05ab215cb27cabbeadf535887c",
+    "src/mm_allee/solver.py": "5b5e972a52acb90ca6b1950cf3a7c7b66f3d7f219534948e052dc1b17ece8711",
+    "src/mm_allee/datasets.py": "56f01a532f8c5b5201c44fc92799c65e5b50b45064d25ce7e12aa5c0dd1a0414",
+    "src/mm_allee/reference_validation.py": "9524205dfc41da4726eb03cbaf6e978ccd6ea65421475552e19e23158be8f855",
+    "src/mm_allee/plotting.py": "549d490288d2e3276bda981552271c3f8c6a21c04b5e31a4e0d7aff88fcece92"
+  },
+  "configuration": {
+    "schema_version": 1,
+    "scope": "Small clean synthetic reference handoff; not final inverse experimental design",
+    "units": {
+      "time": "model_time_unit",
+      "population": "population_unit"
+    },
+    "fixed_reference_scales": {
+      "time": 1.0,
+      "population": 100.0
+    },
+    "solver": {
+      "rtol": 1e-09,
+      "atol": 1e-11,
+      "max_step": 0.1
+    },
+    "validation": {
+      "population_fraction_K": 5e-08,
+      "event_atol": 1e-07
+    },
+    "cases": [
+      {
+        "trajectory_id": "a_regular",
+        "model": "A",
+        "regime": "regular_persistence",
+        "parameters": {
+          "r": 0.7,
+          "K": 100.0,
+          "A": 20.0,
+          "H": 10.0
+        },
+        "initial_population": 45.0,
+        "time_end": 8.0,
+        "n_points": 101
+      },
+      {
+        "trajectory_id": "b_regular",
+        "model": "B",
+        "regime": "regular_persistence",
+        "parameters": {
+          "r": 0.7,
+          "K": 100.0,
+          "A": 20.0,
+          "h": 0.21
+        },
+        "initial_population": 45.0,
+        "time_end": 8.0,
+        "n_points": 101
+      },
+      {
+        "trajectory_id": "a_extinction",
+        "model": "A",
+        "regime": "supercritical_extinction",
+        "parameters": {
+          "r": 0.7,
+          "K": 100.0,
+          "A": 20.0,
+          "H": 70.0
+        },
+        "initial_population": 80.0,
+        "time_end": 5.0,
+        "n_points": 101
+      },
+      {
+        "trajectory_id": "b_decline",
+        "model": "B",
+        "regime": "subthreshold_decline",
+        "parameters": {
+          "r": 0.7,
+          "K": 100.0,
+          "A": 20.0,
+          "h": 0.21
+        },
+        "initial_population": 10.0,
+        "time_end": 5.0,
+        "n_points": 101
+      },
+      {
+        "trajectory_id": "a_near_fold",
+        "model": "A",
+        "regime": "near_fold_persistence",
+        "parameters": {
+          "r": 0.7,
+          "K": 100.0,
+          "A": 20.0,
+          "H": 36.5
+        },
+        "initial_population": 85.0,
+        "time_end": 30.0,
+        "n_points": 101
+      },
+      {
+        "trajectory_id": "b_near_fold",
+        "model": "B",
+        "regime": "near_fold_persistence",
+        "parameters": {
+          "r": 0.7,
+          "K": 100.0,
+          "A": 20.0,
+          "h": 0.5544
+        },
+        "initial_population": 85.0,
+        "time_end": 30.0,
+        "n_points": 101
+      }
+    ]
+  },
+  "configuration_sha256": "bb229ca7978bb3dc46eaeba882f33dbb636075d8b08b9ea3d153f42f25202101",
+  "solver": "SciPy RK45 (Dormand-Prince 5(4)); dense output; terminal A zero event",
+  "independent_checks": "Dimensional polynomial DOP853, tighter RK45, A quadrature where safe",
+  "versions": {
+    "python": "3.12.14",
+    "numpy": "2.5.4",
+    "scipy": "1.18.1",
+    "matplotlib": "3.11.2"
+  },
+  "hardware": {
+    "platform": "Linux",
+    "machine": "x86_64",
+    "processor": "x86_64"
+  },
+  "wall_seconds": 0.7449401040000794,
+  "noise": null,
+  "splits": null,
+  "seeds": null,
+  "noise_and_splits_owner": "WP05; make and freeze observation files before fitting",
+  "validation": [
+    {
+      "trajectory_id": "a_regular",
+      "model": "A",
+      "max_abs_population_error_DOP853": 4.788032015312638e-07,
+      "max_abs_population_change_tighter_RK45": 4.777088093987913e-07,
+      "population_tolerance": 4.9999999999999996e-06,
+      "extinction_time": null,
+      "event_difference_DOP853": null,
+      "event_change_tighter_RK45": null,
+      "extinction_quadrature_time": null,
+      "event_difference_quadrature": null,
+      "event_tolerance": 1e-07,
+      "status": "passed"
+    },
+    {
+      "trajectory_id": "b_regular",
+      "model": "B",
+      "max_abs_population_error_DOP853": 6.103894065745408e-07,
+      "max_abs_population_change_tighter_RK45": 6.077847132246461e-07,
+      "population_tolerance": 4.9999999999999996e-06,
+      "extinction_time": null,
+      "event_difference_DOP853": null,
+      "event_change_tighter_RK45": null,
+      "extinction_quadrature_time": null,
+      "event_difference_quadrature": null,
+      "event_tolerance": 1e-07,
+      "status": "passed"
+    },
+    {
+      "trajectory_id": "a_extinction",
+      "model": "A",
+      "max_abs_population_error_DOP853": 3.8368132493360463e-07,
+      "max_abs_population_change_tighter_RK45": 3.8482617981117073e-07,
+      "population_tolerance": 4.9999999999999996e-06,
+      "extinction_time": 1.643289435208879,
+      "event_difference_DOP853": 5.740514730234736e-10,
+      "event_change_tighter_RK45": 5.69269964501018e-10,
+      "extinction_quadrature_time": 1.64328943463482,
+      "event_difference_quadrature": 5.74059022540041e-10,
+      "event_tolerance": 1e-07,
+      "status": "passed"
+    },
+    {
+      "trajectory_id": "b_decline",
+      "model": "B",
+      "max_abs_population_error_DOP853": 8.568713738554834e-09,
+      "max_abs_population_change_tighter_RK45": 8.514147609162137e-09,
+      "population_tolerance": 4.9999999999999996e-06,
+      "extinction_time": null,
+      "event_difference_DOP853": null,
+      "event_change_tighter_RK45": null,
+      "extinction_quadrature_time": null,
+      "event_difference_quadrature": null,
+      "event_tolerance": 1e-07,
+      "status": "passed"
+    },
+    {
+      "trajectory_id": "a_near_fold",
+      "model": "A",
+      "max_abs_population_error_DOP853": 2.2119408527032647e-08,
+      "max_abs_population_change_tighter_RK45": 2.262711973344267e-08,
+      "population_tolerance": 4.9999999999999996e-06,
+      "extinction_time": null,
+      "event_difference_DOP853": null,
+      "event_change_tighter_RK45": null,
+      "extinction_quadrature_time": null,
+      "event_difference_quadrature": null,
+      "event_tolerance": 1e-07,
+      "status": "passed"
+    },
+    {
+      "trajectory_id": "b_near_fold",
+      "model": "B",
+      "max_abs_population_error_DOP853": 3.2213776535172656e-08,
+      "max_abs_population_change_tighter_RK45": 3.252621638694109e-08,
+      "population_tolerance": 4.9999999999999996e-06,
+      "extinction_time": null,
+      "event_difference_DOP853": null,
+      "event_change_tighter_RK45": null,
+      "extinction_quadrature_time": null,
+      "event_difference_quadrature": null,
+      "event_tolerance": 1e-07,
+      "status": "passed"
+    }
+  ],
+  "files_sha256": {
+    "data/fixtures/wp03_reference/a_regular.csv": "3e9606a30ed7d53c4195b91ee13503f592b0b969ca7e7ff59cb669e77fee10fe",
+    "data/fixtures/wp03_reference/b_regular.csv": "4cd32ebe66ec7358b0268d1256563ee6c0e84145e12cf641123f0051e56dfd1d",
+    "data/fixtures/wp03_reference/a_extinction.csv": "e87ff90a713149aa8ac3040fe6a7396c16a5960fb398a68a7cf31f40ca2b3a87",
+    "data/fixtures/wp03_reference/b_decline.csv": "a7dfeaaafc5762e2213e5f31b27a0796f967b3a2234689d26b6dd93e63ec4043",
+    "data/fixtures/wp03_reference/a_near_fold.csv": "d6c411206e3f8f4d2eed5c60337bef34e6a021f893b58bd2695cb76bfa44cb9a",
+    "data/fixtures/wp03_reference/b_near_fold.csv": "049730710ca5300d37617cb4bfc477c79b7f696b2e8b543ff4957e40c8a6e451",
+    "data/fixtures/wp03_reference/conditions.json": "89821cf767001f4f31410baeef77669b07ff81a29e9b426bd79d096f08155577",
+    "data/fixtures/wp03_reference/truth.json": "a96aee0d43a16803f0db7737f2b3325d0bba4af6e39d940ba99017af9b7d9d42",
+    "data/fixtures/wp03_reference/validation.csv": "a7923a459cf55d14e048e93e7872f3e8797f9de92ec2a3bf9b5874a51b22c3ae",
+    "artifacts/figures/wp03_rk45_reference.png": "2eec0259fa72f1a0d00cf35684630c5c66abfaaf63d94a3ffcb11e3aa378c590",
+    "artifacts/figures/wp03_rk45_reference.eps": "79ccc50856e99e6e9a9cc9f04661342aa2b7511191f919c86eb9c4d230f885c6",
+    "artifacts/tables/wp03_reference_validation.csv": "a7923a459cf55d14e048e93e7872f3e8797f9de92ec2a3bf9b5874a51b22c3ae"
+  },
+  "paths_relative_to": "repository_root",
+  "reproducibility": "CSV/conditions/truth repeat exactly in the same environment; manifest timestamps/runtime and figure metadata vary",
+  "curated_locations": {
+    "reference_files": "data/fixtures/wp03_reference/",
+    "validation_table": "artifacts/tables/wp03_reference_validation.csv",
+    "figures": "artifacts/figures/wp03_rk45_reference.png/.eps"
+  }
+}

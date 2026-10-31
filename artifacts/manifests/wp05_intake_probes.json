@@ -1,0 +1,18 @@
+{
+  "fit_seed": 11,
+  "epochs_per_probe": 3,
+  "different_rng_state_before_network_creation": [
+    101,
+    202
+  ],
+  "same_fit_seed_predictions_equal": false,
+  "same_fit_seed_max_prediction_difference": 49.240570068359375,
+  "budget_exhausted_run_status": "converged",
+  "budget_exhausted_run_success": true,
+  "nonfinite_network_probe": {
+    "raised": "ValueError",
+    "message": "Metric inputs must be finite",
+    "failed_run_record_returned": false
+  },
+  "note": "Intake fault/reproducibility probes only; synthetic linear observations, not a scientific recovery benchmark."
+}

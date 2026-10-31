@@ -1,0 +1,55 @@
+{
+  "schema_version": 1,
+  "scope": "WP05 Inverse Parameter Estimation Smoke Configuration",
+  "units": {
+    "time": "model_time_unit",
+    "population": "population_unit"
+  },
+  "fixed_reference_scales": {
+    "time": 1.0,
+    "population": 100.0
+  },
+  "noise_sigmas": [0.0, 0.01],
+  "seeds": [11],
+  "pinn_settings": {
+    "hidden_layers": [32, 32],
+    "activation": "tanh",
+    "epochs": 50,
+    "patience": 20,
+    "n_collocation": 50,
+    "lr_net": 0.005,
+    "lr_params": 0.01,
+    "lambda_data": 1.0,
+    "lambda_phys": 0.1,
+    "lambda_ic": 1.0
+  },
+  "ode_settings": {
+    "max_nfev": 100
+  },
+  "cases": [
+    {
+      "case_id": "a_regular",
+      "model": "A",
+      "regime": "regular_persistence",
+      "reference_csv": "data/fixtures/wp03_reference/a_regular.csv",
+      "known_conditions": {
+        "known_K": 100.0,
+        "known_initial_population": 45.0
+      },
+      "fit_params": ["r", "A", "H"],
+      "initial_guess": {"r": 1.0, "A": 30.0, "H": 5.0}
+    },
+    {
+      "case_id": "b_regular",
+      "model": "B",
+      "regime": "regular_persistence",
+      "reference_csv": "data/fixtures/wp03_reference/b_regular.csv",
+      "known_conditions": {
+        "known_K": 100.0,
+        "known_initial_population": 45.0
+      },
+      "fit_params": ["r", "A", "h"],
+      "initial_guess": {"r": 1.0, "A": 30.0, "h": 0.1}
+    }
+  ]
+}

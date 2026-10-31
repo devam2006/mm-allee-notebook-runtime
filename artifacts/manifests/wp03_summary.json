@@ -1,0 +1,31 @@
+{
+  "thresholds_and_msy": {
+    "N_star": 70.55050463303894,
+    "H_c": 36.759663026918766,
+    "h_c": 0.56,
+    "H_c_logistic": 17.5,
+    "h_MSY": 0.5210403981958783,
+    "Y_MSY_B": 36.759663026918766,
+    "B_effort_margin_at_MSY": 0.06957071750736021,
+    "B_basin_boundary_at_MSY": 49.44949536696106,
+    "A_control_margin_at_supremum": 0.0
+  },
+  "example_policy_margins": [
+    {
+      "model": "A",
+      "control_fraction": 0.8,
+      "control_margin": 0.19999999999999996,
+      "basin_boundary_N": 53.8045586531547,
+      "population_margin": 36.1954413468453,
+      "outcome": "persistence"
+    },
+    {
+      "model": "B",
+      "control_fraction": 0.9304292824926398,
+      "control_margin": 0.06957071750736021,
+      "basin_boundary_N": 49.44949536696106,
+      "population_margin": 40.55050463303894,
+      "outcome": "persistence"
+    }
+  ]
+}

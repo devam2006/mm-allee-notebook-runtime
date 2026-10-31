@@ -1,0 +1,7 @@
+candidate,forward_accurate,forward_runs,inverse_recovered,inverse_fits,score,median_recovered_error,collapsed_fits,median_forward_seconds,median_inverse_seconds,selected
+tanh_32x32_lr0.001_lam0.1_lrp0.001,0,0,10,18,10,2.867084e-05,3,,3.623500e+00,True
+tanh_32x32_lr0.001_lam0.1_lrp0.01,0,0,10,18,10,8.579910e-05,3,,3.672500e+00,False
+tanh_32x32_lr0.001_lam1_lrp0.001,0,0,8,18,8,5.030650e-05,4,,3.555500e+00,False
+tanh_32x32_lr0.001_lam1_lrp0.01,0,0,10,18,10,1.152402e-04,3,,3.568500e+00,False
+tanh_32x32_lr0.001_lam10_lrp0.001,0,0,8,18,8,1.630782e-04,3,,3.757500e+00,False
+tanh_32x32_lr0.001_lam10_lrp0.01,0,0,9,18,9,1.558085e-04,3,,3.599000e+00,False

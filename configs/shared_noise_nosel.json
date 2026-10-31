@@ -1,0 +1,51 @@
+{
+  "schema_version": 1,
+  "scope": "Noise study repeated with validation-based checkpoint selection and early stopping switched OFF in the inverse trainer (everything else identical to shared_noise.json).",
+  "seeds": [
+    11,
+    22,
+    33
+  ],
+  "fixed": {
+    "n_collocation": 300,
+    "forward_adam_iters": 1000,
+    "inverse_adam_epochs": 1000,
+    "lbfgs_iters": 2500
+  },
+  "inverse": {
+    "cases_config": "configs/wp05_final.json",
+    "recovery_threshold_relative_error": 0.05,
+    "sigmas": [
+      0.0,
+      0.001,
+      0.005,
+      0.01
+    ]
+  },
+  "candidates": [
+    {
+      "id": "tanh_nosel",
+      "activation": "tanh",
+      "hidden": [
+        32,
+        32
+      ],
+      "lr_net": 0.001,
+      "lr_params": 0.001,
+      "lambda_phys": 0.1,
+      "validation_selection": false
+    },
+    {
+      "id": "swish_nosel",
+      "activation": "swish",
+      "hidden": [
+        32,
+        32
+      ],
+      "lr_net": 0.001,
+      "lr_params": 0.001,
+      "lambda_phys": 0.1,
+      "validation_selection": false
+    }
+  ]
+}

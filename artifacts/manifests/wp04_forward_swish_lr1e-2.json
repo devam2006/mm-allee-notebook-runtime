@@ -1,0 +1,153 @@
+{
+  "schema_version": 1,
+  "run_id": "wp04-20261030T180754Z",
+  "created_utc": "2026-10-30T18:07:54.828654+00:00",
+  "git": {
+    "sha": "3bb8d25750e01d6d49d83472039f56c8fb5ffec5",
+    "dirty": true
+  },
+  "command": "python experiments/wp04/run.py --config configs/wp04_final.json --output results/wp04",
+  "config": {
+    "schema_version": 1,
+    "scope": "Frozen final forward sweep: JAX, hard IC, swish activation (selected by the pre-declared rule in experiments/wp04/README.md), 300 uniform collocation points, seeds 0/1/42, Adam then L-BFGS.",
+    "manifest_name": "wp04_forward.json",
+    "seeds": [
+      0,
+      1,
+      42
+    ],
+    "reference": {
+      "method": "DOP853",
+      "rtol": 1e-12,
+      "atol": 1e-14,
+      "n_points": 1001
+    },
+    "inaccuracy_threshold_relative_l2": 0.05,
+    "save_checkpoints": true,
+    "training": {
+      "layers": [
+        1,
+        32,
+        32,
+        1
+      ],
+      "n_collocation": 300,
+      "lr": 0.01,
+      "adam_iters": 1000,
+      "lbfgs_iters": 2500,
+      "time_budget_s": 300,
+      "activation": "swish"
+    },
+    "cases": [
+      {
+        "id": "A_regular",
+        "model": "A",
+        "regime": "regular",
+        "a": 0.2,
+        "harvest": 0.1,
+        "x0": 0.8,
+        "tau_end": 10.0
+      },
+      {
+        "id": "A_near_fold",
+        "model": "A",
+        "regime": "near-fold (q=1.047 q_c, bottleneck then collapse)",
+        "a": 0.2,
+        "harvest": 0.55,
+        "x0": 0.8,
+        "tau_end": 10.0
+      },
+      {
+        "id": "A_extinction",
+        "model": "A",
+        "regime": "subthreshold extinction",
+        "a": 0.2,
+        "harvest": 0.1,
+        "x0": 0.25,
+        "tau_end": 10.0
+      },
+      {
+        "id": "B_regular",
+        "model": "B",
+        "regime": "regular",
+        "a": 0.2,
+        "harvest": 0.3,
+        "x0": 0.8,
+        "tau_end": 10.0
+      },
+      {
+        "id": "B_near_fold",
+        "model": "B",
+        "regime": "near-fold (e=0.975 e_c)",
+        "a": 0.2,
+        "harvest": 0.78,
+        "x0": 0.8,
+        "tau_end": 10.0
+      },
+      {
+        "id": "B_extinction",
+        "model": "B",
+        "regime": "subthreshold (asymptotic decay)",
+        "a": 0.2,
+        "harvest": 0.3,
+        "x0": 0.1,
+        "tau_end": 10.0
+      }
+    ]
+  },
+  "seeds": [
+    0,
+    1,
+    42
+  ],
+  "model_and_units": "dimensionless x=N/K, tau=r*t; A: q=H/(rK), B: e=h/r; synthetic only",
+  "reference_solver": {
+    "method": "DOP853",
+    "rtol": 1e-12,
+    "atol": 1e-14,
+    "n_points": 1001
+  },
+  "baseline_solver": "mm_allee.solver.solve_trajectory (RK45, rtol=1e-9, atol=1e-11)",
+  "optimiser": {
+    "scheme": "Adam then L-BFGS-B (SciPy) on the JAX gradient",
+    "adam_iters": 1000,
+    "lr": 0.01,
+    "lbfgs_iters": 2500
+  },
+  "loss": "physics residual MSE only; initial condition enforced exactly (hard constraint)",
+  "runtime_budget_s_per_run": 300,
+  "supervised_labels_used": false,
+  "pinn_status_counts": {
+    "ok": 17,
+    "inaccurate": 1
+  },
+  "lbfgs_exit_counts": {
+    "STOP: TOTAL NO. OF ITERATIONS REACHED LIMIT": 18
+  },
+  "elapsed_seconds": 118.38,
+  "dependencies": {
+    "python": "3.13.4",
+    "jax": "0.11.2",
+    "jaxlib": "0.11.2",
+    "numpy": "2.5.2",
+    "scipy": "1.18.0",
+    "matplotlib": "3.11.2"
+  },
+  "hardware": {
+    "platform": "Windows-11-10.0.26300-SP0",
+    "processor": "AMD64 Family 25 Model 68 Stepping 1, AuthenticAMD",
+    "cpu_count": 16,
+    "device": "cpu",
+    "dtype": "float64"
+  },
+  "outputs": {
+    "wp04_forward_metrics.csv": "17337fb1f5f7a18d87f346a0fdb67f07a47fdae0cea51327da9649e809d2b95d",
+    "wp04_forward.png": "e563283b764bda5d51b4bc51bc8eadfd167c81f26557ca52ea8f0a3e7928ee06",
+    "wp04_forward.eps": "366f2df4c4f319391270705964f834514006f69ed62feb084ca8ab12eed2c54a",
+    "wp04_forward.pdf": "8b0f2b3c9a901de4a1f5c1c2ef1e77b94210e95b54e358916ff6d022f7281e9e",
+    "wp04_error_loss.png": "71c3f920244ecc4d73fe32abd8957031c9626775f4a79d0d2f9e03428c55d739",
+    "wp04_error_loss.eps": "6c891553a28e904b79c85c2bd3dc26e4444a1f621e62518bca58e73243e4d2c2",
+    "wp04_error_loss.pdf": "ad3ff9921e354ceae3a5a9bb7895640ad46fd546aa694d0aad3bf25dbe513b01"
+  },
+  "status": "completed"
+}

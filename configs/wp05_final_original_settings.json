@@ -1,0 +1,162 @@
+{
+  "schema_version": 1,
+  "scope": "WP05 Comprehensive Inverse Parameter Estimation Sweep and Failure Analysis",
+  "units": {
+    "time": "model_time_unit",
+    "population": "population_unit"
+  },
+  "fixed_reference_scales": {
+    "time": 1.0,
+    "population": 100.0
+  },
+  "noise_sigmas": [
+    0.0,
+    0.01,
+    0.05
+  ],
+  "seeds": [
+    11,
+    22,
+    33
+  ],
+  "pinn_settings": {
+    "hidden_layers": [
+      64,
+      64
+    ],
+    "activation": "tanh",
+    "epochs": 1500,
+    "patience": 150,
+    "n_collocation": 120,
+    "lr_net": 0.001,
+    "lr_params": 0.01,
+    "lambda_data": 1.0,
+    "lambda_phys": 0.1,
+    "lambda_ic": 1.0
+  },
+  "ode_settings": {
+    "max_nfev": 500
+  },
+  "cases": [
+    {
+      "case_id": "a_regular",
+      "model": "A",
+      "regime": "regular_persistence",
+      "reference_csv": "data/fixtures/wp03_reference/a_regular.csv",
+      "known_conditions": {
+        "known_K": 100.0,
+        "known_initial_population": 45.0
+      },
+      "fit_params": [
+        "r",
+        "A",
+        "H"
+      ],
+      "initial_guess": {
+        "r": 1.0,
+        "A": 30.0,
+        "H": 5.0
+      }
+    },
+    {
+      "case_id": "b_regular",
+      "model": "B",
+      "regime": "regular_persistence",
+      "reference_csv": "data/fixtures/wp03_reference/b_regular.csv",
+      "known_conditions": {
+        "known_K": 100.0,
+        "known_initial_population": 45.0
+      },
+      "fit_params": [
+        "r",
+        "A",
+        "h"
+      ],
+      "initial_guess": {
+        "r": 1.0,
+        "A": 30.0,
+        "h": 0.1
+      }
+    },
+    {
+      "case_id": "a_near_fold",
+      "model": "A",
+      "regime": "near_fold_persistence",
+      "reference_csv": "data/fixtures/wp03_reference/a_near_fold.csv",
+      "known_conditions": {
+        "known_K": 100.0,
+        "known_initial_population": 85.0
+      },
+      "fit_params": [
+        "r",
+        "A",
+        "H"
+      ],
+      "initial_guess": {
+        "r": 1.0,
+        "A": 30.0,
+        "H": 25.0
+      }
+    },
+    {
+      "case_id": "b_near_fold",
+      "model": "B",
+      "regime": "near_fold_persistence",
+      "reference_csv": "data/fixtures/wp03_reference/b_near_fold.csv",
+      "known_conditions": {
+        "known_K": 100.0,
+        "known_initial_population": 85.0
+      },
+      "fit_params": [
+        "r",
+        "A",
+        "h"
+      ],
+      "initial_guess": {
+        "r": 1.0,
+        "A": 30.0,
+        "h": 0.4
+      }
+    },
+    {
+      "case_id": "a_extinction",
+      "model": "A",
+      "regime": "supercritical_extinction",
+      "reference_csv": "data/fixtures/wp03_reference/a_extinction.csv",
+      "known_conditions": {
+        "known_K": 100.0,
+        "known_initial_population": 80.0
+      },
+      "fit_params": [
+        "r",
+        "A",
+        "H"
+      ],
+      "initial_guess": {
+        "r": 1.0,
+        "A": 30.0,
+        "H": 50.0
+      }
+    },
+    {
+      "case_id": "b_decline",
+      "model": "B",
+      "regime": "subthreshold_decline",
+      "reference_csv": "data/fixtures/wp03_reference/b_decline.csv",
+      "known_conditions": {
+        "known_K": 100.0,
+        "known_initial_population": 10.0
+      },
+      "fit_params": [
+        "r",
+        "A",
+        "h"
+      ],
+      "initial_guess": {
+        "r": 1.0,
+        "A": 15.0,
+        "h": 0.15
+      }
+    }
+  ]
+}

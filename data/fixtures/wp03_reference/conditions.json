@@ -1,0 +1,51 @@
+{
+  "schema_version": 1,
+  "is_synthetic": true,
+  "units": {
+    "time": "model_time_unit",
+    "population": "population_unit"
+  },
+  "fixed_reference_scales": {
+    "time": 1.0,
+    "population": 100.0
+  },
+  "inverse_design": "Known K and initial population; WP05 chooses fitted subset",
+  "trajectories": {
+    "a_regular": {
+      "model": "A",
+      "known_K": 100.0,
+      "known_initial_population": 45.0,
+      "csv": "a_regular.csv"
+    },
+    "b_regular": {
+      "model": "B",
+      "known_K": 100.0,
+      "known_initial_population": 45.0,
+      "csv": "b_regular.csv"
+    },
+    "a_extinction": {
+      "model": "A",
+      "known_K": 100.0,
+      "known_initial_population": 80.0,
+      "csv": "a_extinction.csv"
+    },
+    "b_decline": {
+      "model": "B",
+      "known_K": 100.0,
+      "known_initial_population": 10.0,
+      "csv": "b_decline.csv"
+    },
+    "a_near_fold": {
+      "model": "A",
+      "known_K": 100.0,
+      "known_initial_population": 85.0,
+      "csv": "a_near_fold.csv"
+    },
+    "b_near_fold": {
+      "model": "B",
+      "known_K": 100.0,
+      "known_initial_population": 85.0,
+      "csv": "b_near_fold.csv"
+    }
+  }
+}

@@ -1,0 +1,25 @@
+{
+  "schema_version": 1,
+  "scope": "WP01 foundations: logistic baseline and Model A equilibria/stability (analytical + root finding)",
+  "units": "dimensionless: x=N/K, tau=r*t, a=A/K, q=H/(r*K)",
+  "a": 0.2,
+  "figure_logistic_q": [0.1, 0.25, 0.35],
+  "figure_allee_q_fraction_of_qc": [0.25, 1.0, 1.2],
+  "branch_n_q": 400,
+  "perturbation": {"q": 0.3, "delta": 0.01, "tau_end": 12.0},
+  "table_cases": {
+    "logistic": [0.0, 0.1, 0.2, 0.25, 0.3],
+    "A": {
+      "a_values": [0.1, 0.2, 0.3],
+      "q_fraction_of_qc": [0.0, 0.1, 0.5, 0.95, 0.999999, 1.0, 1.2]
+    }
+  },
+  "dimensional_example": {
+    "note": "Illustrative parameter values only (not a real stock); used to state thresholds with units",
+    "r_per_year": 0.5,
+    "K_tonnes": 1000.0,
+    "A_tonnes": 200.0
+  },
+  "solver": {"method": "RK45", "rtol": 1e-09, "atol": 1e-11, "max_step": 0.1},
+  "seeds": []
+}

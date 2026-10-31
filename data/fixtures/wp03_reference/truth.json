@@ -1,0 +1,96 @@
+{
+  "schema_version": 1,
+  "evaluation_only": true,
+  "trajectories": {
+    "a_regular": {
+      "parameters": {
+        "r": 0.7,
+        "K": 100.0,
+        "A": 20.0,
+        "H": 10.0,
+        "h": 0.0
+      },
+      "extinction_time": null,
+      "termination": "horizon_reached_no_event",
+      "boundary_policy": "stop_at_zero",
+      "first_time": 0.0,
+      "last_time": 8.0,
+      "n_observations": 101
+    },
+    "b_regular": {
+      "parameters": {
+        "r": 0.7,
+        "K": 100.0,
+        "A": 20.0,
+        "H": 0.0,
+        "h": 0.21
+      },
+      "extinction_time": null,
+      "termination": "horizon_reached_no_event",
+      "boundary_policy": "smooth_nonnegative_dynamics",
+      "first_time": 0.0,
+      "last_time": 8.0,
+      "n_observations": 101
+    },
+    "a_extinction": {
+      "parameters": {
+        "r": 0.7,
+        "K": 100.0,
+        "A": 20.0,
+        "H": 70.0,
+        "h": 0.0
+      },
+      "extinction_time": 1.643289435208879,
+      "termination": "extinction_event",
+      "boundary_policy": "stop_at_zero",
+      "first_time": 0.0,
+      "last_time": 1.643289435208879,
+      "n_observations": 101
+    },
+    "b_decline": {
+      "parameters": {
+        "r": 0.7,
+        "K": 100.0,
+        "A": 20.0,
+        "H": 0.0,
+        "h": 0.21
+      },
+      "extinction_time": null,
+      "termination": "horizon_reached_no_event",
+      "boundary_policy": "smooth_nonnegative_dynamics",
+      "first_time": 0.0,
+      "last_time": 5.0,
+      "n_observations": 101
+    },
+    "a_near_fold": {
+      "parameters": {
+        "r": 0.7,
+        "K": 100.0,
+        "A": 20.0,
+        "H": 36.5,
+        "h": 0.0
+      },
+      "extinction_time": null,
+      "termination": "horizon_reached_no_event",
+      "boundary_policy": "stop_at_zero",
+      "first_time": 0.0,
+      "last_time": 30.000000000000004,
+      "n_observations": 101
+    },
+    "b_near_fold": {
+      "parameters": {
+        "r": 0.7,
+        "K": 100.0,
+        "A": 20.0,
+        "H": 0.0,
+        "h": 0.5544
+      },
+      "extinction_time": null,
+      "termination": "horizon_reached_no_event",
+      "boundary_policy": "smooth_nonnegative_dynamics",
+      "first_time": 0.0,
+      "last_time": 30.000000000000004,
+      "n_observations": 101
+    }
+  }
+}

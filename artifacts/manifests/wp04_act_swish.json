@@ -1,0 +1,147 @@
+{
+  "schema_version": 1,
+  "run_id": "wp04-20261029T190707Z",
+  "created_utc": "2026-10-29T19:07:07.948140+00:00",
+  "git": {
+    "sha": "d2271befdefec62c59f083b47a589907b987671f",
+    "dirty": true
+  },
+  "command": "python experiments/wp04/run.py --config configs/wp04_act_swish.json --output results/wp04_act_swish",
+  "config": {
+    "schema_version": 1,
+    "scope": "Activation-selection sweep (swish): 300 uniform collocation points, seeds 0/1/42, all six cases. Selection rule fixed in experiments/wp04/README.md before running.",
+    "manifest_name": "wp04_act_swish.json",
+    "seeds": [
+      0,
+      1,
+      42
+    ],
+    "reference": {
+      "method": "DOP853",
+      "rtol": 1e-12,
+      "atol": 1e-14,
+      "n_points": 1001
+    },
+    "inaccuracy_threshold_relative_l2": 0.05,
+    "save_checkpoints": true,
+    "training": {
+      "layers": [
+        1,
+        32,
+        32,
+        1
+      ],
+      "n_collocation": 300,
+      "lr": 0.01,
+      "adam_iters": 1000,
+      "lbfgs_iters": 2500,
+      "time_budget_s": 300,
+      "activation": "swish"
+    },
+    "cases": [
+      {
+        "id": "A_regular",
+        "model": "A",
+        "regime": "regular",
+        "a": 0.2,
+        "harvest": 0.1,
+        "x0": 0.8,
+        "tau_end": 10.0
+      },
+      {
+        "id": "A_near_fold",
+        "model": "A",
+        "regime": "near-fold (q=1.047 q_c, bottleneck then collapse)",
+        "a": 0.2,
+        "harvest": 0.55,
+        "x0": 0.8,
+        "tau_end": 10.0
+      },
+      {
+        "id": "A_extinction",
+        "model": "A",
+        "regime": "subthreshold extinction",
+        "a": 0.2,
+        "harvest": 0.1,
+        "x0": 0.25,
+        "tau_end": 10.0
+      },
+      {
+        "id": "B_regular",
+        "model": "B",
+        "regime": "regular",
+        "a": 0.2,
+        "harvest": 0.3,
+        "x0": 0.8,
+        "tau_end": 10.0
+      },
+      {
+        "id": "B_near_fold",
+        "model": "B",
+        "regime": "near-fold (e=0.975 e_c)",
+        "a": 0.2,
+        "harvest": 0.78,
+        "x0": 0.8,
+        "tau_end": 10.0
+      },
+      {
+        "id": "B_extinction",
+        "model": "B",
+        "regime": "subthreshold (asymptotic decay)",
+        "a": 0.2,
+        "harvest": 0.3,
+        "x0": 0.1,
+        "tau_end": 10.0
+      }
+    ]
+  },
+  "seeds": [
+    0,
+    1,
+    42
+  ],
+  "model_and_units": "dimensionless x=N/K, tau=r*t; A: q=H/(rK), B: e=h/r; synthetic only",
+  "reference_solver": {
+    "method": "DOP853",
+    "rtol": 1e-12,
+    "atol": 1e-14,
+    "n_points": 1001
+  },
+  "baseline_solver": "mm_allee.solver.solve_trajectory (RK45, rtol=1e-9, atol=1e-11)",
+  "optimiser": {
+    "scheme": "Adam then L-BFGS-B (SciPy) on the JAX gradient",
+    "adam_iters": 1000,
+    "lr": 0.01,
+    "lbfgs_iters": 2500
+  },
+  "loss": "physics residual MSE only; initial condition enforced exactly (hard constraint)",
+  "runtime_budget_s_per_run": 300,
+  "supervised_labels_used": false,
+  "pinn_status_counts": {
+    "ok": 17,
+    "inaccurate": 1
+  },
+  "elapsed_seconds": 93.79,
+  "dependencies": {
+    "python": "3.13.4",
+    "numpy": "2.5.2",
+    "scipy": "1.18.0",
+    "matplotlib": "3.11.2",
+    "jax": "0.11.2"
+  },
+  "hardware": {
+    "platform": "Windows-11-10.0.26300-SP0",
+    "processor": "AMD64 Family 25 Model 68 Stepping 1, AuthenticAMD",
+    "cpu_count": 16,
+    "device": "cpu",
+    "dtype": "float64"
+  },
+  "outputs": {
+    "wp04_forward_metrics.csv": "9cbecb234d328381648beb6879ba36565176bff61071ccdb5dd1db5692172b71",
+    "wp04_forward.png": "e563283b764bda5d51b4bc51bc8eadfd167c81f26557ca52ea8f0a3e7928ee06",
+    "wp04_forward.eps": "1d668e2b1043978836752283130566a31d347353ef07a52dfa54ea2380191aef",
+    "wp04_error_loss.png": "71c3f920244ecc4d73fe32abd8957031c9626775f4a79d0d2f9e03428c55d739",
+    "wp04_error_loss.eps": "44624fe3424407883260ba16982449b84b48f597cdfa1f1c893de49663ed865c"
+  },
+  "status": "completed"
+}

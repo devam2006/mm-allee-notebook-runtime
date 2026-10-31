@@ -1,0 +1,502 @@
+{
+  "schema_version": 1,
+  "status": "submitted_results_not_verified",
+  "expected_prediction_records": 108,
+  "submitted_prediction_records": 33,
+  "expected_parameter_records": 324,
+  "submitted_parameter_records": 99,
+  "missing_prediction_combinations": [
+    {
+      "case_id": "a_extinction",
+      "noise_sigma": 0.0,
+      "seed": 11,
+      "method": "ODE_LS"
+    },
+    {
+      "case_id": "a_extinction",
+      "noise_sigma": 0.0,
+      "seed": 11,
+      "method": "PINN"
+    },
+    {
+      "case_id": "a_extinction",
+      "noise_sigma": 0.0,
+      "seed": 22,
+      "method": "ODE_LS"
+    },
+    {
+      "case_id": "a_extinction",
+      "noise_sigma": 0.0,
+      "seed": 22,
+      "method": "PINN"
+    },
+    {
+      "case_id": "a_extinction",
+      "noise_sigma": 0.0,
+      "seed": 33,
+      "method": "ODE_LS"
+    },
+    {
+      "case_id": "a_extinction",
+      "noise_sigma": 0.0,
+      "seed": 33,
+      "method": "PINN"
+    },
+    {
+      "case_id": "a_extinction",
+      "noise_sigma": 0.01,
+      "seed": 11,
+      "method": "PINN"
+    },
+    {
+      "case_id": "a_extinction",
+      "noise_sigma": 0.01,
+      "seed": 22,
+      "method": "ODE_LS"
+    },
+    {
+      "case_id": "a_extinction",
+      "noise_sigma": 0.01,
+      "seed": 22,
+      "method": "PINN"
+    },
+    {
+      "case_id": "a_extinction",
+      "noise_sigma": 0.01,
+      "seed": 33,
+      "method": "ODE_LS"
+    },
+    {
+      "case_id": "a_extinction",
+      "noise_sigma": 0.01,
+      "seed": 33,
+      "method": "PINN"
+    },
+    {
+      "case_id": "a_extinction",
+      "noise_sigma": 0.05,
+      "seed": 11,
+      "method": "ODE_LS"
+    },
+    {
+      "case_id": "a_extinction",
+      "noise_sigma": 0.05,
+      "seed": 11,
+      "method": "PINN"
+    },
+    {
+      "case_id": "a_extinction",
+      "noise_sigma": 0.05,
+      "seed": 22,
+      "method": "ODE_LS"
+    },
+    {
+      "case_id": "a_extinction",
+      "noise_sigma": 0.05,
+      "seed": 22,
+      "method": "PINN"
+    },
+    {
+      "case_id": "a_extinction",
+      "noise_sigma": 0.05,
+      "seed": 33,
+      "method": "ODE_LS"
+    },
+    {
+      "case_id": "a_extinction",
+      "noise_sigma": 0.05,
+      "seed": 33,
+      "method": "PINN"
+    },
+    {
+      "case_id": "a_near_fold",
+      "noise_sigma": 0.0,
+      "seed": 11,
+      "method": "ODE_LS"
+    },
+    {
+      "case_id": "a_near_fold",
+      "noise_sigma": 0.0,
+      "seed": 11,
+      "method": "PINN"
+    },
+    {
+      "case_id": "a_near_fold",
+      "noise_sigma": 0.0,
+      "seed": 22,
+      "method": "ODE_LS"
+    },
+    {
+      "case_id": "a_near_fold",
+      "noise_sigma": 0.0,
+      "seed": 22,
+      "method": "PINN"
+    },
+    {
+      "case_id": "a_near_fold",
+      "noise_sigma": 0.0,
+      "seed": 33,
+      "method": "ODE_LS"
+    },
+    {
+      "case_id": "a_near_fold",
+      "noise_sigma": 0.0,
+      "seed": 33,
+      "method": "PINN"
+    },
+    {
+      "case_id": "a_near_fold",
+      "noise_sigma": 0.01,
+      "seed": 11,
+      "method": "PINN"
+    },
+    {
+      "case_id": "a_near_fold",
+      "noise_sigma": 0.01,
+      "seed": 22,
+      "method": "ODE_LS"
+    },
+    {
+      "case_id": "a_near_fold",
+      "noise_sigma": 0.01,
+      "seed": 22,
+      "method": "PINN"
+    },
+    {
+      "case_id": "a_near_fold",
+      "noise_sigma": 0.01,
+      "seed": 33,
+      "method": "ODE_LS"
+    },
+    {
+      "case_id": "a_near_fold",
+      "noise_sigma": 0.01,
+      "seed": 33,
+      "method": "PINN"
+    },
+    {
+      "case_id": "a_near_fold",
+      "noise_sigma": 0.05,
+      "seed": 11,
+      "method": "PINN"
+    },
+    {
+      "case_id": "a_near_fold",
+      "noise_sigma": 0.05,
+      "seed": 22,
+      "method": "ODE_LS"
+    },
+    {
+      "case_id": "a_near_fold",
+      "noise_sigma": 0.05,
+      "seed": 22,
+      "method": "PINN"
+    },
+    {
+      "case_id": "a_near_fold",
+      "noise_sigma": 0.05,
+      "seed": 33,
+      "method": "ODE_LS"
+    },
+    {
+      "case_id": "a_near_fold",
+      "noise_sigma": 0.05,
+      "seed": 33,
+      "method": "PINN"
+    },
+    {
+      "case_id": "a_regular",
+      "noise_sigma": 0.0,
+      "seed": 22,
+      "method": "ODE_LS"
+    },
+    {
+      "case_id": "a_regular",
+      "noise_sigma": 0.0,
+      "seed": 22,
+      "method": "PINN"
+    },
+    {
+      "case_id": "a_regular",
+      "noise_sigma": 0.0,
+      "seed": 33,
+      "method": "ODE_LS"
+    },
+    {
+      "case_id": "a_regular",
+      "noise_sigma": 0.0,
+      "seed": 33,
+      "method": "PINN"
+    },
+    {
+      "case_id": "b_decline",
+      "noise_sigma": 0.0,
+      "seed": 11,
+      "method": "ODE_LS"
+    },
+    {
+      "case_id": "b_decline",
+      "noise_sigma": 0.0,
+      "seed": 11,
+      "method": "PINN"
+    },
+    {
+      "case_id": "b_decline",
+      "noise_sigma": 0.0,
+      "seed": 22,
+      "method": "ODE_LS"
+    },
+    {
+      "case_id": "b_decline",
+      "noise_sigma": 0.0,
+      "seed": 22,
+      "method": "PINN"
+    },
+    {
+      "case_id": "b_decline",
+      "noise_sigma": 0.0,
+      "seed": 33,
+      "method": "ODE_LS"
+    },
+    {
+      "case_id": "b_decline",
+      "noise_sigma": 0.0,
+      "seed": 33,
+      "method": "PINN"
+    },
+    {
+      "case_id": "b_decline",
+      "noise_sigma": 0.01,
+      "seed": 11,
+      "method": "PINN"
+    },
+    {
+      "case_id": "b_decline",
+      "noise_sigma": 0.01,
+      "seed": 22,
+      "method": "ODE_LS"
+    },
+    {
+      "case_id": "b_decline",
+      "noise_sigma": 0.01,
+      "seed": 22,
+      "method": "PINN"
+    },
+    {
+      "case_id": "b_decline",
+      "noise_sigma": 0.01,
+      "seed": 33,
+      "method": "ODE_LS"
+    },
+    {
+      "case_id": "b_decline",
+      "noise_sigma": 0.01,
+      "seed": 33,
+      "method": "PINN"
+    },
+    {
+      "case_id": "b_decline",
+      "noise_sigma": 0.05,
+      "seed": 11,
+      "method": "ODE_LS"
+    },
+    {
+      "case_id": "b_decline",
+      "noise_sigma": 0.05,
+      "seed": 11,
+      "method": "PINN"
+    },
+    {
+      "case_id": "b_decline",
+      "noise_sigma": 0.05,
+      "seed": 22,
+      "method": "ODE_LS"
+    },
+    {
+      "case_id": "b_decline",
+      "noise_sigma": 0.05,
+      "seed": 22,
+      "method": "PINN"
+    },
+    {
+      "case_id": "b_decline",
+      "noise_sigma": 0.05,
+      "seed": 33,
+      "method": "ODE_LS"
+    },
+    {
+      "case_id": "b_decline",
+      "noise_sigma": 0.05,
+      "seed": 33,
+      "method": "PINN"
+    },
+    {
+      "case_id": "b_near_fold",
+      "noise_sigma": 0.0,
+      "seed": 11,
+      "method": "ODE_LS"
+    },
+    {
+      "case_id": "b_near_fold",
+      "noise_sigma": 0.0,
+      "seed": 11,
+      "method": "PINN"
+    },
+    {
+      "case_id": "b_near_fold",
+      "noise_sigma": 0.0,
+      "seed": 22,
+      "method": "ODE_LS"
+    },
+    {
+      "case_id": "b_near_fold",
+      "noise_sigma": 0.0,
+      "seed": 22,
+      "method": "PINN"
+    },
+    {
+      "case_id": "b_near_fold",
+      "noise_sigma": 0.0,
+      "seed": 33,
+      "method": "ODE_LS"
+    },
+    {
+      "case_id": "b_near_fold",
+      "noise_sigma": 0.0,
+      "seed": 33,
+      "method": "PINN"
+    },
+    {
+      "case_id": "b_near_fold",
+      "noise_sigma": 0.01,
+      "seed": 11,
+      "method": "PINN"
+    },
+    {
+      "case_id": "b_near_fold",
+      "noise_sigma": 0.01,
+      "seed": 22,
+      "method": "ODE_LS"
+    },
+    {
+      "case_id": "b_near_fold",
+      "noise_sigma": 0.01,
+      "seed": 22,
+      "method": "PINN"
+    },
+    {
+      "case_id": "b_near_fold",
+      "noise_sigma": 0.01,
+      "seed": 33,
+      "method": "ODE_LS"
+    },
+    {
+      "case_id": "b_near_fold",
+      "noise_sigma": 0.01,
+      "seed": 33,
+      "method": "PINN"
+    },
+    {
+      "case_id": "b_near_fold",
+      "noise_sigma": 0.05,
+      "seed": 11,
+      "method": "ODE_LS"
+    },
+    {
+      "case_id": "b_near_fold",
+      "noise_sigma": 0.05,
+      "seed": 11,
+      "method": "PINN"
+    },
+    {
+      "case_id": "b_near_fold",
+      "noise_sigma": 0.05,
+      "seed": 22,
+      "method": "ODE_LS"
+    },
+    {
+      "case_id": "b_near_fold",
+      "noise_sigma": 0.05,
+      "seed": 22,
+      "method": "PINN"
+    },
+    {
+      "case_id": "b_near_fold",
+      "noise_sigma": 0.05,
+      "seed": 33,
+      "method": "ODE_LS"
+    },
+    {
+      "case_id": "b_near_fold",
+      "noise_sigma": 0.05,
+      "seed": 33,
+      "method": "PINN"
+    },
+    {
+      "case_id": "b_regular",
+      "noise_sigma": 0.0,
+      "seed": 22,
+      "method": "ODE_LS"
+    },
+    {
+      "case_id": "b_regular",
+      "noise_sigma": 0.0,
+      "seed": 22,
+      "method": "PINN"
+    },
+    {
+      "case_id": "b_regular",
+      "noise_sigma": 0.0,
+      "seed": 33,
+      "method": "ODE_LS"
+    },
+    {
+      "case_id": "b_regular",
+      "noise_sigma": 0.0,
+      "seed": 33,
+      "method": "PINN"
+    }
+  ],
+  "submitted_status_counts": {
+    "converged": 31,
+    "near_fold_instability": 1,
+    "finite_extinction_truncation": 1
+  },
+  "statuses_not_generated_by_submitted_ode_code": [
+    {
+      "run_id": "wp05_a_near_fold_s05_seed11",
+      "model": "A",
+      "regime": "near_fold_persistence",
+      "method": "ODE_LS",
+      "noise_sigma": "0.05",
+      "seed": "11",
+      "train_rmse": "4.250",
+      "val_rmse": "4.850",
+      "test_rmse": "5.620",
+      "test_mae": "4.450",
+      "test_relative_l2": "0.0785",
+      "wall_seconds": "0.145",
+      "status": "near_fold_instability"
+    },
+    {
+      "run_id": "wp05_a_extinction_s01_seed11",
+      "model": "A",
+      "regime": "supercritical_extinction",
+      "method": "ODE_LS",
+      "noise_sigma": "0.01",
+      "seed": "11",
+      "train_rmse": "0.950",
+      "val_rmse": "1.150",
+      "test_rmse": "1.420",
+      "test_mae": "1.080",
+      "test_relative_l2": "0.0245",
+      "wall_seconds": "0.052",
+      "status": "finite_extinction_truncation"
+    }
+  ],
+  "input_sha256": {
+    "configs/wp05_final.json": "21323b64fcc7a25e6205104985f899d49048b5f3af3089fbad0643a289ca789f",
+    "artifacts/tables/wp05_prediction_metrics.csv": "ca3e36ed95e7d1086ed1e3c0c64ba50573001701918a00eaa287724853ed7228",
+    "artifacts/tables/wp05_parameter_metrics.csv": "5a8fef7429d75f78c4ba497c94322508e96146e5d63e634eadac87054de856cd"
+  }
+}

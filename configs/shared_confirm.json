@@ -1,0 +1,131 @@
+{
+  "schema_version": 1,
+  "scope": "Confirmation of the shared setting on fresh seeds 11/22/33 (not used in selection), clean and noisy data. No selection happens here.",
+  "seeds": [
+    11,
+    22,
+    33
+  ],
+  "fixed": {
+    "n_collocation": 300,
+    "forward_adam_iters": 1000,
+    "inverse_adam_epochs": 1000,
+    "lbfgs_iters": 2500
+  },
+  "forward": {
+    "reference": {
+      "method": "DOP853",
+      "rtol": 1e-12,
+      "atol": 1e-14,
+      "n_points": 1001
+    },
+    "inaccuracy_threshold_relative_l2": 0.05,
+    "cases": [
+      {
+        "id": "A_regular",
+        "model": "A",
+        "regime": "regular",
+        "a": 0.2,
+        "harvest": 0.1,
+        "x0": 0.8,
+        "tau_end": 10.0
+      },
+      {
+        "id": "A_near_fold",
+        "model": "A",
+        "regime": "near-fold (q=1.047 q_c, bottleneck then collapse)",
+        "a": 0.2,
+        "harvest": 0.55,
+        "x0": 0.8,
+        "tau_end": 10.0
+      },
+      {
+        "id": "A_extinction",
+        "model": "A",
+        "regime": "subthreshold extinction",
+        "a": 0.2,
+        "harvest": 0.1,
+        "x0": 0.25,
+        "tau_end": 10.0
+      },
+      {
+        "id": "B_regular",
+        "model": "B",
+        "regime": "regular",
+        "a": 0.2,
+        "harvest": 0.3,
+        "x0": 0.8,
+        "tau_end": 10.0
+      },
+      {
+        "id": "B_near_fold",
+        "model": "B",
+        "regime": "near-fold (e=0.975 e_c)",
+        "a": 0.2,
+        "harvest": 0.78,
+        "x0": 0.8,
+        "tau_end": 10.0
+      },
+      {
+        "id": "B_extinction",
+        "model": "B",
+        "regime": "subthreshold (asymptotic decay)",
+        "a": 0.2,
+        "harvest": 0.3,
+        "x0": 0.1,
+        "tau_end": 10.0
+      }
+    ]
+  },
+  "inverse": {
+    "cases_config": "configs/wp05_final.json",
+    "recovery_threshold_relative_error": 0.05,
+    "sigmas": [
+      0.0,
+      0.01,
+      0.05
+    ]
+  },
+  "candidates": [
+    {
+      "id": "shared_final",
+      "activation": "tanh",
+      "hidden": [
+        32,
+        32
+      ],
+      "lr_net": 0.001,
+      "lr_params": 0.001,
+      "lambda_phys": 0.1
+    },
+    {
+      "id": "wp04_pr6_setting",
+      "activation": "swish",
+      "hidden": [
+        32,
+        32
+      ],
+      "lr_net": 0.01,
+      "lr_params": 0.01,
+      "lambda_phys": 0.1
+    },
+    {
+      "id": "wp05_original",
+      "activation": "tanh",
+      "hidden": [
+        64,
+        64
+      ],
+      "lr_net": 0.001,
+      "lr_params": 0.01,
+      "lambda_phys": 0.1,
+      "n_collocation": 120,
+      "inverse_adam_epochs": 1500,
+      "patience": 150,
+      "lbfgs_iters": 200,
+      "lbfgs_ftol": 1e-12,
+      "lbfgs_gtol": 1e-08,
+      "run_forward": false
+    }
+  ]
+}

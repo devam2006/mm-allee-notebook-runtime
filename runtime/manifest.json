@@ -1,5 +1,5 @@
 {
-  "source_commit": "9b8585418c4ab5ea43e9f8bbb029d80307db9edb",
+  "source_commit": "87bea768e798e826c39c9776541a3e3ef183175d",
   "source_dirty": false,
   "work_packages": [
     "WP01",
@@ -16,7 +16,7 @@
     "artifacts/figures/wp05_heldout_failure.png": "629912197f578bae42c12e2b0e3e25715c8dec92b3260cf75ffa8e902e78c623",
     "artifacts/figures/wp05_recovery_noise.png": "fb482e23b511b2a33f0c2dad2f5afe665c12e7f09e7259f75388d7872e51a889",
     "artifacts/manifests/wp01_run.json": "9055a88801adab003997504506030aeddb2c1914dbe7262093588dd180a14cea",
-    "artifacts/manifests/wp02_run.json": "ec7331cfb764caf1df6c33560523cac69d3f72c46685b471f2a44eec279b1a0a",
+    "artifacts/manifests/wp02_run.json": "e9dcc5071b8b1d22779a6961784164c13da8058b6173a8b506d7ab95de8724c4",
     "artifacts/manifests/wp03_analysis.json": "759b331a369470278a64e42c2e0a319bc1cea3b5934fe0964e8d1c187cd8d117",
     "artifacts/manifests/wp03_environment.txt": "e19d7f5c057b40df14c07d64004c3e3532c833ce2985d67033e92b3b5a80e221",
     "artifacts/manifests/wp03_reference.json": "ff3ad29f1acbfac6199d8d8e1b8558a1332986f239f776359ba3e9ef7dd8e070",
@@ -58,8 +58,8 @@
     "artifacts/tables/wp01_equilibria.csv": "0a276160b1d0de4c6537a30875df7c9868d92e42b40c100980af2d8a6c1f57fe",
     "artifacts/tables/wp01_thresholds.json": "91c313dbc18de04beb317496c4f97983f7aa9b9dcba7bf00d79a9cafca3b1b58",
     "artifacts/tables/wp02_b_equilibria.csv": "0761f55ba5acdffc881165178e1c2f67b3871204ad3db23c6cc56c91a5f04a3e",
-    "artifacts/tables/wp02_comparison.csv": "8722eb5b943e2997da38799209d7ae7fabbb27af0920d43a527f508821608f54",
-    "artifacts/tables/wp02_history_summary.csv": "e9f28cc6089250c2a3864f1fc44839369638df1b244a15ac07f11784e87f6255",
+    "artifacts/tables/wp02_comparison.csv": "07c7576507ed72a7a63317ff17b6c062759b9233e9ae2236e458e19c80e8c15d",
+    "artifacts/tables/wp02_history_summary.csv": "afa1706b3074cc35ec27bcfc51f7f745ad435b2a82428236a2296d255048343e",
     "artifacts/tables/wp03_basins.csv": "a9abcba02639a95e5f893d737447093ffa9d6c4b451cb31dc07fc358530c2a43",
     "artifacts/tables/wp03_bottleneck.csv": "357c547f394682dfccf065f891e318a77f59e6e80fe5a183ab179c438c7d2008",
     "artifacts/tables/wp03_event_validation.csv": "681ccf58ab7e2af34e3ee71f7d46f1c3463cb5fcae25dccf68398631d5d75b6d",
@@ -133,7 +133,7 @@
     "src/mm_allee/__init__.py": "b65690d61f03f0dee198f8cc69f6075cb78ed291fd8257d90934a38d9c3f2b92",
     "src/mm_allee/collapse.py": "00eeba90b9b8b50a3e2f46c5cd22a42518646b0b9cdfcbd65fa49eff39834cbb",
     "src/mm_allee/collapse_study.py": "314e51d564f7912341e67c042f62067b7a403d7c30cf307f772603010dec9b47",
-    "src/mm_allee/comparison.py": "5661447047d728177394b3fdcea99cd8ef280769434389f60a0a725f77587b51",
+    "src/mm_allee/comparison.py": "3fa08bb08f067340a3a40c615aef5bfc02db0fd076bedbb92acff0e06018cac6",
     "src/mm_allee/data.py": "77b5de19a12abb205cfe10156c7ca99e82804cae370b545fe651a6eb0715bb66",
     "src/mm_allee/datasets.py": "628690be8d8dbac75468af31d9af99606f4980ee675b24dc16fca5e1d12bbae1",
     "src/mm_allee/equilibria.py": "df1d856564397fda9487addc0d4eb2597c696d61161119e9805236facff979fe",
@@ -154,12 +154,12 @@
     "src/mm_allee/solver.py": "ecbcd509c1221c8ec5538e974f9ec0741e660ccb26dc7d608a5c1675ea5c7695",
     "src/mm_allee/thresholds.py": "5dd125bcf915b1e8c4583abf0dd93c8f301d7465daca7afee44f1d4cd665f466",
     "src/mm_allee/validation.py": "380544c733d7bed6679a4ef4b4cbf6bdd26ac50c9ae0491641a30bf866c6c7c4",
-    "src/mm_allee/wp02_experiment.py": "fa40695547ad2814ea65103afc8731e5db4512e942f925981f25fbe9d73cea51"
+    "src/mm_allee/wp02_experiment.py": "79c5ea90b63666f8b1f80357bd7f82b9ed1cbb37a6f013e1f928d6b9f05f0168"
   },
   "scope": "Selected runtime source, configs, synthetic fixtures, tables and five display figures",
-  "path": "runtime/wp01-wp05-aa68d518ae054ca6.zip",
-  "sha256": "aa68d518ae054ca684111e6b75941984b643a445897c14d1dd6a2e112d5303b4",
-  "bytes": 1547835,
+  "path": "runtime/wp01-wp05-1aa5283ac899d954.zip",
+  "sha256": "1aa5283ac899d954ec3dc1115fd533e6d3824cec01518c45df210752d5472e17",
+  "bytes": 1547948,
   "files": 146,
   "static_figures": 5,
   "public_repository": "devam2006/mm-allee-notebook-runtime"

@@ -1,7 +1,7 @@
 """Explicit comparison protocols; theoretical basins and finite-horizon yields.
 
 A/logistic roots are reused from WP01, not reimplemented. The curated design
-uses a=0.2 and controls well outside WP01's unresolved near-fold rounding band.
+uses a=0.2 and a conservative control exclusion separate from fold topology.
 """
 
 from math import isfinite
@@ -27,20 +27,20 @@ def comparison_controls(parameters, x_ref, fraction, protocol):
     if not all(isfinite(v) and v > 0 for v in (x_ref, fraction)):
         raise ValueError("Positive finite reference population and fraction required")
     a = parameters.A / parameters.K
-    # WP01's absolute fold band is known to be unsuitable near a=1.
+    # Retain WP02's validated parameter range; shared folds use exact equality.
     if not 0.05 <= a <= 0.95:
         raise ValueError("Comparisons currently validated only for 0.05<=a<=0.95")
     qc = fold_a(a)[1]
     q = fraction * qc
     if q != qc and abs(q - qc) <= COMPARISON_CONTROL_EXCLUSION:
-        raise ValueError("A control lies in WP01's unresolved fold tolerance band")
+        raise ValueError("A control lies in WP02's conservative fold tolerance band")
     if protocol == "initial_catch":
         if q != 0.25 and abs(q - 0.25) <= COMPARISON_CONTROL_EXCLUSION:
-            raise ValueError("Logistic control lies in WP01's unresolved fold tolerance band")
+            raise ValueError("Logistic control lies in WP02's conservative fold tolerance band")
         return {"A": fraction * qc, "B": fraction * qc / x_ref, "logistic": fraction * qc}
     if protocol == "threshold_fraction":
         if fraction / 4 != 0.25 and abs(fraction / 4 - 0.25) <= COMPARISON_CONTROL_EXCLUSION:
-            raise ValueError("Logistic control lies in WP01's unresolved fold tolerance band")
+            raise ValueError("Logistic control lies in WP02's conservative fold tolerance band")
         return {"A": fraction * qc, "B": fraction * critical_effort(a), "logistic": fraction / 4}
     raise ValueError("Unknown comparison protocol")
 

@@ -27,6 +27,7 @@ from .history import ramp_schedule, run_history
 from .model_b import critical_effort, equilibria_b
 from .models import Parameters
 from .plotting import save_figure
+from .solver import MIN_RK45_RTOL
 
 
 def write_csv(path, rows):
@@ -110,7 +111,7 @@ def run_experiment(config, output, root):
     """Write results/figures/manifest and return summary, recording failures too."""
     output, root = Path(output), Path(root)
     requested_rtol = config.get("solver", {}).get("rtol", 1e-9)
-    if not np.isfinite(requested_rtol) or requested_rtol < 100 * np.finfo(float).eps:
+    if not np.isfinite(requested_rtol) or requested_rtol < MIN_RK45_RTOL:
         raise ValueError("RK45 rtol is below its supported minimum or nonfinite")
     output.mkdir(parents=True, exist_ok=True)
     started = time.monotonic()
@@ -141,6 +142,8 @@ def run_experiment(config, output, root):
             "models.py",
             "solver.py",
             "equilibria.py",
+            "thresholds.py",
+            "collapse.py",
             "model_b.py",
             "history.py",
             "comparison.py",
@@ -148,7 +151,8 @@ def run_experiment(config, output, root):
         ]
     ]
     manifest["source_sha256"] = {
-        str(p.relative_to(root)): hashlib.sha256(p.read_bytes()).hexdigest() for p in source_paths
+        p.relative_to(root).as_posix(): hashlib.sha256(p.read_bytes()).hexdigest()
+        for p in source_paths
     }
 
     def budget():
